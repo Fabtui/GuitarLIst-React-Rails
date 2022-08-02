@@ -1,10 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { setGuitars } from '../actions';
 
 class GuitarLink extends React.Component {
   constructor (props) {
     super (props)
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentWillMount() {
+    this.props.setGuitars();
   }
 
   handleClick (e) {
@@ -33,6 +40,15 @@ export class GuitarList extends React.Component {
       </div>
   }
 }
+
+function mapDispatchToProps(dispatch) {
+ return bindActionCreators(
+    { setGuitars: setGuitars },
+    dispatch
+  );
+}
+
+export default connect(null, mapDispatchToProps)(GuitarList);
 
 GuitarList.propTypes = {
   guitars: PropTypes.array
