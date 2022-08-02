@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Guitar.destroy_all
+User.destroy_all
+
+user = User.create!(email: 'toto@mail.com', password: 'azerty')
+Guitar.create!(name: 'Stratocaster', brand: 'Fender', year:'2002', user_id: user.id)
+Guitar.create!(name: 'JP6', brand: 'Music Man', year:'2001', user_id: user.id)
+Guitar.create!(name: 'JEM77BFP', brand: 'Ibanez', year:'1991', user_id: user.id)
+
+p Guitar.count
+p User.count

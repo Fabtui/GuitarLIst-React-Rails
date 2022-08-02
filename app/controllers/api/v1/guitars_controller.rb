@@ -1,0 +1,22 @@
+class Api::V1::GuitarsController < ActionController::Base
+  def index
+    @guitars = Guitar.order(created_at: :desc)
+    render json: @guitars
+  end
+
+  def show
+    @guitar = Guitar.find(params[:id])
+    render json: @guitar
+  end
+
+  def create
+    @guitar = Guitar.create(guitar_params)
+    render json: @guitar
+  end
+
+  private
+
+  def guitar_params
+    params.require(:guitar).permit(:name, :brand, :year, :user_id)
+  end
+end

@@ -14,9 +14,14 @@
   <body>
 
     <%= render "shared/navbar" %>
+
+    <div id='app' data-guitars="<%= @guitars.to_json %>"></div>
+
+    <%= link_to 'api', api_v1_guitars_path %>
+
     <%= render "shared/flashes" %>
 
     <%= yield %>
-    
+
   </body>
 </html>
