@@ -55,14 +55,14 @@ export class App extends React.Component {
   }
 
   render () {
-    return <React.Fragment>
+    return <div className='container app__container'>
       <div className="left__window">
         <GuitarList guitars={GUITAR_API} guitarSelect={this.guitarSelect}/>
       </div>
       <div className="right__window">
         <GuitarShow guitar={this.state.selected_guitar}/>
       </div>
-      </React.Fragment>
+      </div>
   }
 }
 
