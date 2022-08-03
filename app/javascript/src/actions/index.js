@@ -35,3 +35,10 @@ export function setGuitars() {
     payload: GUITAR_API
   }
 }
+
+export function selectGuitar(guitar) {
+  return {
+    type: 'SELECT_GUITAR',
+    payload: guitar
+  }
+}
