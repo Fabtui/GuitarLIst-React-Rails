@@ -35,13 +35,12 @@ const guitarsReducer = (state = initialState, action) => {
  // Reducer initialisation
  return [];
  }
+ // TODO: handle some actions
  switch (action.type) {
   case SET_GUITARS:
-    console.log(action.payload);
     return action.payload;
   default:
     return state;
  }
- // TODO: handle some actions
 };
 export default guitarsReducer;
