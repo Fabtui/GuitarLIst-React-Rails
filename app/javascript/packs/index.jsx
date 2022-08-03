@@ -7,13 +7,13 @@ import { createStore, combineReducers } from 'redux';
 import guitarsReducer from '../src/reducers/guitars_reducer'
 
 const reducers = combineReducers({
- guitars: guitarsReducer
+  guitars: guitarsReducer
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Provider store={createStore(reducers)}>
-    <App/>
+    <Provider store={createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+      <App/>
     </Provider>,
     document.body.appendChild(document.createElement('div')),
   )

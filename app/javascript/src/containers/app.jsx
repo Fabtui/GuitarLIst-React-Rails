@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { GuitarList } from './guitars'
+import { GuitarList } from './guitar_list'
 import { GuitarShow } from './guitar_show'
 
 const GUITAR_API = [
