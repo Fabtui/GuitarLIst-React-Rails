@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import { App } from '../src/containers/app'
+import App from '../src/containers/app'
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import guitarsReducer from '../src/reducers/guitars_reducer'
