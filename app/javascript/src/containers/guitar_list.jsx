@@ -12,13 +12,9 @@ export class GuitarList extends React.Component {
   // }
 
   render () {
-    const items = []
-    this.props.guitars.forEach((guitar) => {
-      items.push(<GuitarElement key={guitar.id} guitar={guitar} onClick={this.props.guitarSelect}/>)
-    })
     return <div className='guitar__list'>
         <ul>
-          {items}
+          {this.props.guitars.map(guitar => <GuitarElement key={guitar.id} guitar={guitar} onClick={this.props.guitarSelect}/>)}
         </ul>
       </div>
   }
