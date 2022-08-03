@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
 
-export class GuitarShow extends React.Component {
-  constructor (props) {
-    super (props)
-  }
+class GuitarShow extends React.Component {
 
   render () {
     if (this.props.guitar) {
@@ -20,3 +18,11 @@ export class GuitarShow extends React.Component {
 GuitarShow.propTypes = {
   guitar: PropTypes.object
 }
+
+function mapStateToProps(state) {
+  return {
+    guitar: state.selectedGuitar
+  };
+}
+
+export default connect(mapStateToProps)(GuitarShow);
