@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 class GuitarShow extends React.Component {
 
   render () {
-    if (this.props.guitar) {
+    if (this.props.selectedGuitar) {
     return <div className='guitar__show'>
         <ul>
-          <li>{this.props.guitar.name}</li>
+          <li>{this.props.selectedGuitar.name}</li>
         </ul>
       </div>
     }
@@ -16,12 +16,12 @@ class GuitarShow extends React.Component {
 }
 
 GuitarShow.propTypes = {
-  guitar: PropTypes.object
+  selectedGuitar: PropTypes.object
 }
 
 function mapStateToProps(state) {
   return {
-    guitar: state.selectedGuitar
+    selectedGuitar: state.selectedGuitar
   };
 }
 
