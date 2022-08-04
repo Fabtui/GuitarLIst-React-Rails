@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import App from '../src/components/app'
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import reduxPromise from 'redux-promise';
+import logger from 'redux-logger';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import guitarsReducer from '../src/reducers/guitars_reducer'
 import selectedGuitarReducer from '../src/reducers/selected_guitar_reducer';
 
@@ -12,9 +14,11 @@ const reducers = combineReducers({
   selectedGuitar: selectedGuitarReducer
 });
 
+const middlewares = applyMiddleware(reduxPromise, logger);
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Provider store={createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+    <Provider store={createStore(reducers, {}, middlewares)}>
       <App/>
     </Provider>,
     document.body.appendChild(document.createElement('div')),
