@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_175601) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo_id"
     t.string "serial_number"
-    t.string "country"
+    t.string "made_in"
     t.string "color"
     t.string "body_wood"
     t.string "neck_wood"
