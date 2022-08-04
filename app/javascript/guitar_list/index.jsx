@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import GuitarIndex from '../src/components/guitar_index'
+import GuitarIndex from './components/guitar_index'
 import { Provider } from 'react-redux';
 import reduxPromise from 'redux-promise';
 import { createRoot } from 'react-dom/client';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import guitarsReducer from '../src/reducers/guitars_reducer'
-import selectedGuitarReducer from '../src/reducers/selected_guitar_reducer';
+import guitarsReducer from './reducers/guitars_reducer'
+import selectedGuitarReducer from './reducers/selected_guitar_reducer';
 
 const reducers = combineReducers({
   guitars: guitarsReducer,

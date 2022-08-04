@@ -1,3 +1,5 @@
 <div id='guitar_list'></div>
-
+<% content_for :after_js do %>
+  <%= javascript_pack_tag "guitar_list" %>
+<% end %>
 <%= link_to 'New Guitar', new_guitar_path %>
