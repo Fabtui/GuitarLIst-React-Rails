@@ -14,10 +14,12 @@ class GuitarsController < ApplicationController
   def new
     require_relative "../assets/data/brands"
     @guitar = Guitar.new
+    @pickups = Pickup.all
   end
 
   # GET /guitars/1/edit
   def edit
+    @pickups = Pickup.all
     require_relative "../assets/data/brands"
   end
 
@@ -74,6 +76,6 @@ class GuitarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_params
-      params.require(:guitar).permit(:name, :brand, :year, :photo)
+      params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :pickups, :serial_number, :country, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_154217) do
+ActiveRecord::Schema.define(version: 2022_08_04_175601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,55 @@ ActiveRecord::Schema.define(version: 2022_08_04_154217) do
     t.string "name"
     t.integer "year"
     t.integer "user_id"
+    t.bigint "neck_pickup_id"
+    t.bigint "center_pickup_id"
+    t.bigint "bridge_pickup_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo_id"
+    t.string "serial_number"
+    t.string "country"
+    t.string "color"
+    t.string "body_wood"
+    t.string "neck_wood"
+    t.string "body_top_wood"
+    t.string "fingerboard_wood"
+    t.string "bridge"
+    t.float "scale_length"
+    t.integer "frets_number"
+    t.string "frets_type"
+    t.string "neck_shape"
+    t.float "neck_radius"
+    t.integer "neck_width_nut"
+    t.integer "neck_width_last_fret"
+    t.string "neck_finish"
+    t.string "neck_attachment"
+    t.string "nut_material"
+    t.string "tuning_machines"
+    t.string "pickups_configuration"
+    t.string "artist"
+    t.index ["bridge_pickup_id"], name: "index_guitars_on_bridge_pickup_id"
+    t.index ["center_pickup_id"], name: "index_guitars_on_center_pickup_id"
+    t.index ["neck_pickup_id"], name: "index_guitars_on_neck_pickup_id"
+  end
+
+  create_table "pickups", force: :cascade do |t|
+    t.string "brand"
+    t.string "name"
+    t.integer "output"
+    t.boolean "neck"
+    t.boolean "center"
+    t.boolean "bridge"
+    t.float "resistance"
+    t.float "bass"
+    t.float "middle"
+    t.float "treble"
+    t.string "type"
+    t.string "magnet"
+    t.boolean "active"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +113,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_154217) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "guitars", "pickups", column: "bridge_pickup_id"
+  add_foreign_key "guitars", "pickups", column: "center_pickup_id"
+  add_foreign_key "guitars", "pickups", column: "neck_pickup_id"
 end
