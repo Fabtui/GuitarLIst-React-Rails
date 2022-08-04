@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import GuitarList from '../containers/guitar_list'
 import GuitarShow from './guitar_show'
 
-export default class App extends React.Component {
+export default class GuitarIndex extends React.Component {
 
   render () {
     return <div className='container app__container'>
       <div className="left__window">
-        <GuitarList guitars={this.props.guitars}/>
+        <GuitarList/>
       </div>
       <div className="right__window">
         <GuitarShow/>
@@ -17,6 +17,3 @@ export default class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  guitars: PropTypes.array
-}

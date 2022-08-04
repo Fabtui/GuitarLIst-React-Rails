@@ -1,4 +1,5 @@
 class GuitarsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_guitar, only: %i[ show edit update destroy ]
 
   # GET /guitars or /guitars.json
@@ -12,6 +13,7 @@ class GuitarsController < ApplicationController
 
   # GET /guitars/new
   def new
+    require_relative "../assets/data/brands"
     @guitar = Guitar.new
   end
 
@@ -25,7 +27,7 @@ class GuitarsController < ApplicationController
 
     respond_to do |format|
       if @guitar.save
-        format.html { redirect_to guitar_url(@guitar), notice: "Guitar was successfully created." }
+        format.html { redirect_to guitars_path, notice: "Guitar was successfully created." }
         format.json { render :show, status: :created, location: @guitar }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +67,6 @@ class GuitarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_params
-      params.fetch(:guitar, {})
+      params.require(:guitar).permit(:name, :brand, :year)
     end
 end
