@@ -1,12 +1,6 @@
-
-<%= simple_form_for(@guitar) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= simple_form_for @guitar do |f| %>
+  <%= f.input :brand, collection: BRANDS.sort %>
+  <%= f.input :name %>
+  <%= f.input :year, collection: 1940..Time.now.year %>
+  <%= f.button :submit %>
 <% end %>

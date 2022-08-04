@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import App from '../src/components/app'
+import GuitarIndex from '../src/components/guitar_index'
 import { Provider } from 'react-redux';
 import reduxPromise from 'redux-promise';
 import { createRoot } from 'react-dom/client';
@@ -21,11 +21,11 @@ const store = createStore(reducers, composeEnhancers(
   ));
 
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('app');
+  const container = document.getElementById('guitar_list');
   const root = createRoot(container); // createRoot(container!) if you use TypeScript
   root.render(
     <Provider store={store}>
-      <App/>
+      <GuitarIndex/>
     </Provider>
   )
 })
