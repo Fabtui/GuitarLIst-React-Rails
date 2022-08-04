@@ -22,6 +22,9 @@
   <%= f.input :nut_material %>
   <%= f.input :tuning_machines %>
   <%= f.input :pickups_configuration, hint:'HSH, SSS,...' %>
+  <%= f.input :neck_pickup_id, label: 'Neck Pickup', collection: @pickups %>
+  <%= f.input :center_pickup_id, label: 'Center Pickup', collection: @pickups %>
+  <%= f.input :bridge_pickup_id, label: 'Bridge Pickup', collection: @pickups %>
   <%= f.input :artist %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit %>

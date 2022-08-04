@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_184621) do
+ActiveRecord::Schema.define(version: 2022_08_04_175601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,20 +43,14 @@ ActiveRecord::Schema.define(version: 2022_08_04_184621) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "guitar_pickups", force: :cascade do |t|
-    t.bigint "guitar_id"
-    t.bigint "pickup_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["guitar_id"], name: "index_guitar_pickups_on_guitar_id"
-    t.index ["pickup_id"], name: "index_guitar_pickups_on_pickup_id"
-  end
-
   create_table "guitars", force: :cascade do |t|
     t.string "brand"
     t.string "name"
     t.integer "year"
     t.integer "user_id"
+    t.bigint "neck_pickup_id"
+    t.bigint "center_pickup_id"
+    t.bigint "bridge_pickup_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo_id"
@@ -81,6 +75,9 @@ ActiveRecord::Schema.define(version: 2022_08_04_184621) do
     t.string "tuning_machines"
     t.string "pickups_configuration"
     t.string "artist"
+    t.index ["bridge_pickup_id"], name: "index_guitars_on_bridge_pickup_id"
+    t.index ["center_pickup_id"], name: "index_guitars_on_center_pickup_id"
+    t.index ["neck_pickup_id"], name: "index_guitars_on_neck_pickup_id"
   end
 
   create_table "pickups", force: :cascade do |t|
@@ -116,4 +113,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_184621) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "guitars", "pickups", column: "bridge_pickup_id"
+  add_foreign_key "guitars", "pickups", column: "center_pickup_id"
+  add_foreign_key "guitars", "pickups", column: "neck_pickup_id"
 end
