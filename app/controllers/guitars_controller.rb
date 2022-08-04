@@ -13,6 +13,7 @@ class GuitarsController < ApplicationController
   # GET /guitars/new
   def new
     require_relative "../assets/data/brands"
+    require_relative "../assets/data/countries"
     @guitar = Guitar.new
     @pickups = Pickup.all
   end
@@ -21,6 +22,7 @@ class GuitarsController < ApplicationController
   def edit
     @pickups = Pickup.all
     require_relative "../assets/data/brands"
+    require_relative "../assets/data/countries"
   end
 
   # POST /guitars or /guitars.json
