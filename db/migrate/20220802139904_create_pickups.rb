@@ -4,14 +4,12 @@ class CreatePickups < ActiveRecord::Migration[6.1]
       t.string :brand
       t.string :name
       t.integer :output
-      t.boolean :neck
-      t.boolean :center
-      t.boolean :bridge
       t.float :resistance
       t.float :bass
-      t.float :middle
+      t.float :low_middle
+      t.float :high_middle
       t.float :treble
-      t.string :type
+      t.string :pickup_type
       t.string :magnet
       t.boolean :active
       t.text :description
