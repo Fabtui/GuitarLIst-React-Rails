@@ -2,7 +2,7 @@ class AddPickupsToGuitars < ActiveRecord::Migration[6.1]
   def change
     add_column :guitars, :photo_id, :string
     add_column :guitars, :serial_number, :string
-    add_column :guitars, :country, :string
+    add_column :guitars, :made_in, :string
     add_column :guitars, :color, :string
     add_column :guitars, :body_wood, :string
     add_column :guitars, :neck_wood, :string
