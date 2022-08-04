@@ -18,13 +18,16 @@ class GuitarsController < ApplicationController
 
   # GET /guitars/1/edit
   def edit
+    require_relative "../assets/data/brands"
   end
 
   # POST /guitars or /guitars.json
   def create
     @guitar = Guitar.new(guitar_params)
     @guitar.user_id = current_user.id
-    @guitar.photo_id = @guitar.photo.key
+    if @guitar.photo.attached?
+      @guitar.photo_id = @guitar.photo.key
+    end
     respond_to do |format|
       if @guitar.save
         format.html { redirect_to guitars_path, notice: "Guitar was successfully created." }
@@ -40,7 +43,11 @@ class GuitarsController < ApplicationController
   def update
     respond_to do |format|
       if @guitar.update(guitar_params)
-        format.html { redirect_to guitar_url(@guitar), notice: "Guitar was successfully updated." }
+        if @guitar.photo.attached?
+          @guitar.photo_id = @guitar.photo.key
+          @guitar.save
+        end
+        format.html { redirect_to guitars_path, notice: "Guitar was successfully updated." }
         format.json { render :show, status: :ok, location: @guitar }
       else
         format.html { render :edit, status: :unprocessable_entity }
