@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import App from '../src/components/app'
 import { Provider } from 'react-redux';
 import reduxPromise from 'redux-promise';
+import { createRoot } from 'react-dom/client';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import guitarsReducer from '../src/reducers/guitars_reducer'
@@ -14,17 +15,17 @@ const reducers = combineReducers({
   selectedGuitar: selectedGuitarReducer
 });
 
-// const middlewares = applyMiddleware(reduxPromise, logger);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(reducers, composeEnhancers(
-    applyMiddleware(reduxPromise, logger)
+    applyMiddleware(reduxPromise)
   ));
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
+  const container = document.getElementById('app');
+  const root = createRoot(container); // createRoot(container!) if you use TypeScript
+  root.render(
     <Provider store={store}>
       <App/>
-    </Provider>,
-    document.body.appendChild(document.createElement('div')),
+    </Provider>
   )
 })

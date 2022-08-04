@@ -7,7 +7,7 @@ import { setGuitars } from '../actions/index'
 
 class GuitarList extends React.Component {
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.setGuitars();
   }
 
