@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
 
 class GuitarShow extends React.Component {
 
@@ -11,9 +13,10 @@ class GuitarShow extends React.Component {
     const href = `/guitars/${this.props.selectedGuitar.id}/edit`
     return <div className='guitar__show'>
         <ul>
-          <h3>{this.props.selectedGuitar.name}</h3>
-          <a href={href}>Edit</a>
-          {photo}
+          <h3>{this.props.selectedGuitar.name}</h3><a href={href}><FontAwesomeIcon icon={faPen} /></a>
+          <div className="guitar__image__container">
+            {photo}
+          </div>
         </ul>
       </div>
     }
