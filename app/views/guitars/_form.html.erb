@@ -2,6 +2,6 @@
   <%= f.input :brand, collection: BRANDS.sort %>
   <%= f.input :name %>
   <%= f.input :year, collection: 1940..Time.now.year %>
-  <%= f.input :photos, as: :file %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit %>
 <% end %>

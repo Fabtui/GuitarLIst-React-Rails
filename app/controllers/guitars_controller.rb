@@ -24,6 +24,7 @@ class GuitarsController < ApplicationController
   def create
     @guitar = Guitar.new(guitar_params)
     @guitar.user_id = current_user.id
+    @guitar.photo_id = @guitar.photo.key
     respond_to do |format|
       if @guitar.save
         format.html { redirect_to guitars_path, notice: "Guitar was successfully created." }
@@ -66,6 +67,6 @@ class GuitarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_params
-      params.require(:guitar).permit(:name, :brand, :year, :photos)
+      params.require(:guitar).permit(:name, :brand, :year, :photo)
     end
 end
