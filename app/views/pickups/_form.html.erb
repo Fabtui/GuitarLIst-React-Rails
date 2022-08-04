@@ -1,0 +1,14 @@
+<%= simple_form_for @pickup do |f| %>
+  <%= f.input :brand, collection: PICKUP_BRANDS.sort %>
+  <%= f.input :name %>
+  <%= f.input :output, hint: 'in mV' %>
+  <%= f.input :resistance, hint: 'in Kohm'%>
+  <%= f.input :bass %>
+  <%= f.input :low_middle %>
+  <%= f.input :high_middle %>
+  <%= f.input :treble %>
+  <%= f.input :pickup_type, label: 'Type', collection: ['Single Coil', 'Humbucker', 'Humbucker in Single Coil', 'P90', 'Lipstick', 'Mini Humbucker'] %>
+  <%= f.input :active %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
