@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_154217) do
+ActiveRecord::Schema.define(version: 2022_08_04_184621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2022_08_04_154217) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "guitar_pickups", force: :cascade do |t|
+    t.bigint "guitar_id"
+    t.bigint "pickup_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guitar_id"], name: "index_guitar_pickups_on_guitar_id"
+    t.index ["pickup_id"], name: "index_guitar_pickups_on_pickup_id"
+  end
+
   create_table "guitars", force: :cascade do |t|
     t.string "brand"
     t.string "name"
@@ -51,6 +60,46 @@ ActiveRecord::Schema.define(version: 2022_08_04_154217) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo_id"
+    t.string "serial_number"
+    t.string "country"
+    t.string "color"
+    t.string "body_wood"
+    t.string "neck_wood"
+    t.string "body_top_wood"
+    t.string "fingerboard_wood"
+    t.string "bridge"
+    t.float "scale_length"
+    t.integer "frets_number"
+    t.string "frets_type"
+    t.string "neck_shape"
+    t.float "neck_radius"
+    t.integer "neck_width_nut"
+    t.integer "neck_width_last_fret"
+    t.string "neck_finish"
+    t.string "neck_attachment"
+    t.string "nut_material"
+    t.string "tuning_machines"
+    t.string "pickups_configuration"
+    t.string "artist"
+  end
+
+  create_table "pickups", force: :cascade do |t|
+    t.string "brand"
+    t.string "name"
+    t.integer "output"
+    t.boolean "neck"
+    t.boolean "center"
+    t.boolean "bridge"
+    t.float "resistance"
+    t.float "bass"
+    t.float "middle"
+    t.float "treble"
+    t.string "type"
+    t.string "magnet"
+    t.boolean "active"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

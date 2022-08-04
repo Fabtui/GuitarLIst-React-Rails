@@ -74,6 +74,6 @@ class GuitarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_params
-      params.require(:guitar).permit(:name, :brand, :year, :photo)
+      params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :pickups, :serial_number, :country, :artist)
     end
 end
