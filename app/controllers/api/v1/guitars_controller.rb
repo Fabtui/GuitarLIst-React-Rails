@@ -17,6 +17,6 @@ class Api::V1::GuitarsController < ActionController::Base
   private
 
   def guitar_params
-    params.require(:guitar).permit(:name, :brand, :year, :user_id)
+    params.require(:guitar).permit(:name, :brand, :year, :user_id, :photos)
   end
 end

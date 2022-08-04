@@ -1,5 +1,4 @@
 class GuitarsController < ApplicationController
-  skip_before_action :authenticate_user!
   before_action :set_guitar, only: %i[ show edit update destroy ]
 
   # GET /guitars or /guitars.json
@@ -24,7 +23,7 @@ class GuitarsController < ApplicationController
   # POST /guitars or /guitars.json
   def create
     @guitar = Guitar.new(guitar_params)
-
+    @guitar.user_id = current_user.id
     respond_to do |format|
       if @guitar.save
         format.html { redirect_to guitars_path, notice: "Guitar was successfully created." }
@@ -67,6 +66,6 @@ class GuitarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_params
-      params.require(:guitar).permit(:name, :brand, :year)
+      params.require(:guitar).permit(:name, :brand, :year, :photos)
     end
 end
