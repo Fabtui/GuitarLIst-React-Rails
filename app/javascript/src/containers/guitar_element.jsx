@@ -16,7 +16,8 @@ class GuitarElement extends React.Component {
   }
 
   render () {
-    return <li><h4 onClick={this.handleClick} id={this.props.guitar.id}>{this.props.guitar.brand} {this.props.guitar.name} {this.props.guitar.year}</h4></li>
+    const style = (this.props.guitar === this.props.selectedGuitar) ? 'guitar__element__active' : ''
+    return <li><h4 className={style} onClick={this.handleClick} id={this.props.guitar.id}>{this.props.guitar.brand} {this.props.guitar.name} {this.props.guitar.year}</h4></li>
   }
 }
 
@@ -31,4 +32,11 @@ function mapDispatchToProps(dispach) {
   );
 }
 
-export default connect(null, mapDispatchToProps)(GuitarElement)
+function mapStateToProps(reduxState) {
+  return {
+    selectedGuitar: reduxState.selectedGuitar
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuitarElement)
