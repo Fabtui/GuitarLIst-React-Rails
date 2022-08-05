@@ -30,3 +30,17 @@ export function setNeckPickup(pickup) {
     payload: pickup
   }
 }
+
+export function setCenterPickup(pickup) {
+  return {
+    type: 'SET_CENTER_PICKUP',
+    payload: pickup
+  }
+}
+
+export function setBridgePickup(pickup) {
+  return {
+    type: 'SET_BRIDGE_PICKUP',
+    payload: pickup
+  }
+}
