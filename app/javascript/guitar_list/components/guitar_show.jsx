@@ -31,6 +31,7 @@ GuitarShow.propTypes = {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     selectedGuitar: state.selectedGuitar,
     neckPickup: state.neckPickup,

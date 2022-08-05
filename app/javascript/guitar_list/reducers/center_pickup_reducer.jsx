@@ -1,7 +1,7 @@
 const SET_CENTER_PICKUP = 'SET_CENTER_PICKUP'
 
 const setCenterPickupReducer = (state, action) => {
- if (state === undefined || action.payload === undefined) {
+ if (state === undefined) {
   return null;
  }
  switch (action.type) {

@@ -1,7 +1,7 @@
 const SET_BRIDGE_PICKUP = 'SET_BRIDGE_PICKUP'
 
 const setBridgePickupReducer = (state, action) => {
- if (state === undefined || action.payload === undefined) {
+ if (state === undefined) {
   return null;
  }
  switch (action.type) {

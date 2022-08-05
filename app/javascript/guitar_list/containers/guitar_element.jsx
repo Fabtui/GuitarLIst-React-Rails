@@ -15,12 +15,12 @@ class GuitarElement extends React.Component {
 
   handleClick () {
     this.props.selectGuitar(this.props.guitar)
-    const neckPickup = this.props.pickups.find(pickup => pickup.id === this.props.guitar.neck_pickup_id)
-    this.props.setNeckPickup(neckPickup)
     const centerPickup = this.props.pickups.find(pickup => pickup.id === this.props.guitar.center_pickup_id)
-    this.props.setCenterPickup(centerPickup)
+    centerPickup ? this.props.setCenterPickup(centerPickup) : this.props.setCenterPickup(null)
     const bridgePickup = this.props.pickups.find(pickup => pickup.id === this.props.guitar.bridge_pickup_id)
-    this.props.setBridgePickup(bridgePickup)
+    bridgePickup ? this.props.setBridgePickup(bridgePickup) : this.props.setBridgePickup(null)
+    const neckPickup = this.props.pickups.find(pickup => pickup.id === this.props.guitar.neck_pickup_id)
+    neckPickup ? this.props.setNeckPickup(neckPickup) : this.props.setNeckPickup(null)
   }
 
   render () {
@@ -48,7 +48,6 @@ function mapStateToProps(reduxState) {
   return {
     selectedGuitar: reduxState.selectedGuitar,
     pickups: reduxState.pickups,
-    neckPickup: reduxState.neckPickup
   }
 }
 
