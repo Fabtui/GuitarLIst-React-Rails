@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { selectGuitar } from '../actions/index'
-
+import { setNeckPickup } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class GuitarElement extends React.Component {
   constructor (props) {
     super (props)
-  this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick () {
+    const neckPickup = this.props.pickups.find(pickup => pickup.id === this.props.guitar.neck_pickup_id)
     this.props.selectGuitar(this.props.guitar)
+    this.props.setNeckPickup(neckPickup)
   }
 
   render () {
@@ -27,14 +29,18 @@ GuitarElement.propTypes = {
 
 function mapDispatchToProps(dispach) {
   return bindActionCreators(
-    { selectGuitar: selectGuitar },
+    { selectGuitar: selectGuitar,
+      setNeckPickup: setNeckPickup
+    },
     dispach
   );
 }
 
 function mapStateToProps(reduxState) {
   return {
-    selectedGuitar: reduxState.selectedGuitar
+    selectedGuitar: reduxState.selectedGuitar,
+    pickups: reduxState.pickups,
+    neckPickup: reduxState.neckPickup
   }
 }
 

@@ -23,3 +23,10 @@ export function setPickups() {
     payload: promise
   }
 }
+
+export function setNeckPickup(pickup) {
+  return {
+    type: 'SET_NECK_PICKUP',
+    payload: pickup
+  }
+}

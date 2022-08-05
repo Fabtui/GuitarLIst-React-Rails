@@ -17,6 +17,7 @@ class GuitarShow extends React.Component {
           <div className="guitar__image__container">
             {photo}
           </div>
+          <h5>{this.props.neckPickup ? this.props.neckPickup.name : ''}</h5>
         </ul>
       </div>
     }
@@ -29,7 +30,8 @@ GuitarShow.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    selectedGuitar: state.selectedGuitar
+    selectedGuitar: state.selectedGuitar,
+    neckPickup: state.neckPickup
   };
 }
 
