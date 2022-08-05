@@ -1,0 +1,11 @@
+.pickup__details {
+  background-color: red;
+  transition: 0.2s;
+  height: auto;
+  overflow: hidden;
+}
+
+.hidden {
+  transition: 0.2s;
+  height: 0;
+}
