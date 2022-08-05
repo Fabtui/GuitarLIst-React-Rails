@@ -18,6 +18,8 @@ class GuitarShow extends React.Component {
             {photo}
           </div>
           <h5>{this.props.neckPickup ? this.props.neckPickup.name : ''}</h5>
+          <h5>{this.props.centerPickup ? this.props.centerPickup.name : ''}</h5>
+          <h5>{this.props.bridgePickup ? this.props.bridgePickup.name : ''}</h5>
         </ul>
       </div>
     }
@@ -31,7 +33,9 @@ GuitarShow.propTypes = {
 function mapStateToProps(state) {
   return {
     selectedGuitar: state.selectedGuitar,
-    neckPickup: state.neckPickup
+    neckPickup: state.neckPickup,
+    centerPickup: state.centerPickup,
+    bridgePickup: state.bridgePickup
   };
 }
 

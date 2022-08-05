@@ -10,13 +10,17 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import guitarsReducer from './reducers/guitars_reducer'
 import pickupsReducer from './reducers/pickups_reducer';
 import selectedGuitarReducer from './reducers/selected_guitar_reducer';
-import setNeckPickupReducer from './reducers/neck_pickups_reducer';
+import setNeckPickupReducer from './reducers/neck_pickup_reducer';
+import setCenterPickupReducer from './reducers/center_pickup_reducer';
+import setBridgePickupReducer from './reducers/bridge_pickup_reducer';
 
 const reducers = combineReducers({
   guitars: guitarsReducer,
   pickups: pickupsReducer,
   selectedGuitar: selectedGuitarReducer,
-  neckPickup: setNeckPickupReducer
+  neckPickup: setNeckPickupReducer,
+  centerPickup: setCenterPickupReducer,
+  bridgePickup: setBridgePickupReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
