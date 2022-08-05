@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
+import PickupShow from '../components/pickup_show';
 
 class GuitarShow extends React.Component {
 
@@ -17,9 +18,9 @@ class GuitarShow extends React.Component {
           <div className="guitar__image__container">
             {photo}
           </div>
-          <h5>{this.props.neckPickup ? this.props.neckPickup.name : ''}</h5>
-          <h5>{this.props.centerPickup ? this.props.centerPickup.name : ''}</h5>
-          <h5>{this.props.bridgePickup ? this.props.bridgePickup.name : ''}</h5>
+          {this.props.neckPickup ? <PickupShow pickup={this.props.neckPickup}/> : ''}
+          {this.props.centerPickup ? <PickupShow pickup={this.props.centerPickup}/> : ''}
+          {this.props.bridgePickup ? <PickupShow pickup={this.props.bridgePickup}/> : ''}
         </ul>
       </div>
     }

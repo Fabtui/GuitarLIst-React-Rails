@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import GuitarList from '../containers/guitar_list'
-import GuitarShow from './guitar_show'
+import GuitarShow from '../containers/guitar_show'
 
 export default class GuitarIndex extends React.Component {
 
@@ -16,4 +16,3 @@ export default class GuitarIndex extends React.Component {
       </div>
   }
 }
-
