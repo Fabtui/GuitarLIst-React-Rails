@@ -26,6 +26,8 @@
   <%= f.input :center_pickup_id, label: 'Center Pickup', collection: @pickups %>
   <%= f.input :bridge_pickup_id, label: 'Bridge Pickup', collection: @pickups %>
   <%= f.input :artist %>
+  <%= f.input :purchase_date, collection: 1950..Time.now.year %>
+  <%= f.input :price %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit %>
 <% end %>

@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2022_08_04_175601) do
     t.string "tuning_machines"
     t.string "pickups_configuration"
     t.string "artist"
+    t.integer "price"
+    t.integer "purchase_date"
     t.index ["bridge_pickup_id"], name: "index_guitars_on_bridge_pickup_id"
     t.index ["center_pickup_id"], name: "index_guitars_on_center_pickup_id"
     t.index ["neck_pickup_id"], name: "index_guitars_on_neck_pickup_id"

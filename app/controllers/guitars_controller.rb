@@ -3,7 +3,7 @@ class GuitarsController < ApplicationController
 
   # GET /guitars or /guitars.json
   def index
-    @guitars = Guitar.all
+    @guitars = Guitar.where(user_id: current_user.id).order(created_at: :asc)
   end
 
   # GET /guitars/1 or /guitars/1.json
@@ -78,6 +78,6 @@ class GuitarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_params
-      params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :serial_number, :made_in, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id)
+      params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :serial_number, :made_in, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id, :purchase_date, :price)
     end
 end

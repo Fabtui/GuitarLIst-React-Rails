@@ -22,5 +22,7 @@ class AddPickupsToGuitars < ActiveRecord::Migration[6.1]
     add_column :guitars, :tuning_machines, :string
     add_column :guitars, :pickups_configuration, :string
     add_column :guitars, :artist, :string
+    add_column :guitars, :price, :integer
+    add_column :guitars, :purchase_date, :integer
   end
 end
