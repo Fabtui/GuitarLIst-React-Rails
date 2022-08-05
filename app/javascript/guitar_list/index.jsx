@@ -8,10 +8,12 @@ import { createRoot } from 'react-dom/client';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import guitarsReducer from './reducers/guitars_reducer'
+import pickupsReducer from './reducers/pickups_reducer';
 import selectedGuitarReducer from './reducers/selected_guitar_reducer';
 
 const reducers = combineReducers({
   guitars: guitarsReducer,
+  pickups: pickupsReducer,
   selectedGuitar: selectedGuitarReducer
 });
 

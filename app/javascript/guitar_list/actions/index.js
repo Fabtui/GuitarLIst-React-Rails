@@ -14,3 +14,12 @@ export function selectGuitar(guitar) {
     payload: guitar
   }
 }
+
+export function setPickups() {
+ const promise = fetch('/api/v1/pickups')
+  .then(response => response.json());
+  return {
+    type: 'SET_PICKUPS',
+    payload: promise
+  }
+}
