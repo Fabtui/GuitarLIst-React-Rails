@@ -1,16 +1,16 @@
-const SET_GUITARS = 'SET_GUITARS'
+const SET_PICKUPS = 'SET_PICKUPS'
 
-const guitarsReducer = (state, action) => {
+const pickupsReducer = (state, action) => {
  if (state === undefined) {
  // Reducer initialisation
  return [];
  }
  // TODO: handle some actions
  switch (action.type) {
-  case SET_GUITARS:
+  case SET_PICKUPS:
     return action.payload;
   default:
     return state;
  }
 };
-export default guitarsReducer;
+export default pickupsReducer;

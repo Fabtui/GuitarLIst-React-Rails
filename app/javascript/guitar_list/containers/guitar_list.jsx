@@ -4,11 +4,13 @@ import GuitarElement from './guitar_element';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setGuitars } from '../actions/index'
+import { setPickups } from '../actions/index';
 
 class GuitarList extends React.Component {
 
   UNSAFE_componentWillMount() {
     this.props.setGuitars();
+    this.props.setPickups();
   }
 
   render () {
@@ -21,15 +23,19 @@ class GuitarList extends React.Component {
 }
 
 GuitarElement.propTypes = {
-  guitars: PropTypes.array
+  guitars: PropTypes.array,
+  pickups: PropTypes.array
 }
 
 function mapDispatchToProps(dispach) {
-  return bindActionCreators(
-    { setGuitars: setGuitars },
+  return bindActionCreators({
+    setGuitars: setGuitars,
+    setPickups: setPickups
+    },
     dispach
   );
 }
+
 
 function mapStateToProps(reduxState) {
   return {
