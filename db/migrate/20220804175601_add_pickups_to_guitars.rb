@@ -5,6 +5,7 @@ class AddPickupsToGuitars < ActiveRecord::Migration[6.1]
     add_column :guitars, :made_in, :string
     add_column :guitars, :color, :string
     add_column :guitars, :body_wood, :string
+    add_column :guitars, :body_finish, :string
     add_column :guitars, :neck_wood, :string
     add_column :guitars, :body_top_wood, :string
     add_column :guitars, :fingerboard_wood, :string

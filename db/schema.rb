@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_175601) do
     t.string "made_in"
     t.string "color"
     t.string "body_wood"
+    t.string "body_finish"
     t.string "neck_wood"
     t.string "body_top_wood"
     t.string "fingerboard_wood"
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_175601) do
   create_table "pickups", force: :cascade do |t|
     t.string "brand"
     t.string "name"
+    t.string "product_name"
     t.integer "output"
     t.float "resistance"
     t.float "bass"
