@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 
 const barsBuilder = (tone, name) => {
@@ -32,12 +34,16 @@ export default class PickupShow extends React.Component {
 
   render () {
     const classname = this.state.fold? 'pickup__details hidden' : 'pickup__details'
+    const faName = this.state.fold? faAngleDown : faAngleUp
     const bassBars = barsBuilder(this.props.pickup.bass, 'bass')
     const lowMidBars = barsBuilder(this.props.pickup.low_middle, 'low-middle')
     const highMidBars = barsBuilder(this.props.pickup.high_middle, 'high-middle')
     const trebleBars = barsBuilder(this.props.pickup.treble, 'treble')
     return <div className='pickup__show__container'>
-        <h5 onClick={this.handleClick}>{this.props.position} pickup: {this.props.pickup.brand} {this.props.pickup.name}</h5>
+        <div onClick={this.handleClick} className="pickup__title">
+        <h5>{this.props.position} pickup: {this.props.pickup.brand} {this.props.pickup.name}</h5>
+          <FontAwesomeIcon icon={faName} />
+        </div>
         <div className={classname}>
           {this.props.pickup.output ? <h6>Output: {this.props.pickup.output}mV</h6> : <h6>Output:</h6>}
           <div className="pickup__tone__row">
