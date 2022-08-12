@@ -1,8 +1,13 @@
 <%= simple_form_for @guitar do |f| %>
   <div class="row">
     <div class="col-md">
-      <h4>Infos</h4>
-      <div class="form__infos">
+      <div class="form__title form__title__infos" data-name="form__infos">
+        <%= image_tag("icon-guitar-misc.png") %>
+        <h4>Infos</h4>
+        <i class="fa-solid fa-angle-down" id="form__infos__icon"></i>
+      </div>
+      <div class="form__infos form__container form__hidden">
+        <div class="form__content">
         <%= f.input :brand, collection: BRANDS.sort %>
         <%= f.input :name %>
         <%= f.input :year, collection: 1940..Time.now.year %>
@@ -11,15 +16,24 @@
         <%= f.input :artist %>
         <%= f.input :purchase_date, collection: 1950..Time.now.year %>
         <%= f.input :price %>
+        </div>
       </div>
-      <h4>Body</h4>
-      <div class="form__body">
+      <div class="form__title form__title__body" data-name="form__body">
+        <%= image_tag("icon-guitar-body.png")%>
+        <h4>Body</h4>
+        <i class="fa-solid fa-angle-down" id="form__body__icon"></i>
+      </div>
+      <div class="form__body form__container form__hidden">
         <%= f.input :color %>
         <%= f.input :body_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut'] %>
         <%= f.input :body_top_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Flamed Maple' ,'Quilted Maple', 'Mohagany', 'Poplar Burl','Okoume', 'Swamp Ash', 'Walnut', 'Zebra Wood'] %>
       </div>
-      <h4>Pickups</h4>
-      <div class="form__pickups">
+      <div class="form__title form__title__pickups" data-name="form__pickups">
+        <%= image_tag("icon-guitar-electronics.png") %>
+        <h4>Pickups</h4>
+        <i class="fa-solid fa-angle-down" id="form__pickups__icon"></i>
+      </div>
+      <div class="form__pickups form__container form__hidden">
         <%= f.input :pickups_configuration, hint:'HSH, SSS,...' %>
         <%= f.input :neck_pickup_id, label: 'Neck Pickup', collection: @pickups %>
         <%= f.input :center_pickup_id, label: 'Center Pickup', collection: @pickups %>
@@ -27,8 +41,12 @@
       </div>
     </div>
     <div class="col-md">
-      <h4>Neck</h4>
-      <div class="form__neck">
+      <div class="form__title form__title__neck" data-name="form__neck">
+        <%= image_tag("icon-guitar-neck.png") %>
+        <h4>Neck</h4>
+        <i class="fa-solid fa-angle-down" id="form__neck__icon"></i>
+      </div>
+      <div class="form__neck form__container form__hidden">
         <%= f.input :neck_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut']  %>
         <%= f.input :fingerboard_wood, collection: ['Maple','Ebony', 'Rosewood', 'Richlite', 'Birdseye Maple', 'Roasted Maple', 'Flamed Maple'] %>
         <%= f.input :scale_length, hint:'in cm' %>
@@ -41,8 +59,12 @@
         <%= f.input :frets_number, collection: 21..27 %>
         <%= f.input :frets_type %>
       </div>
-      <h4>Hardware</h4>
-      <div class="form__hardware">
+      <div class="form__title form__title__hardware" data-name="form__hardware">
+        <%= image_tag("icon-guitar-hardware.png") %>
+        <h4>Hardware</h4>
+        <i class="fa-solid fa-angle-down" id="form__hardware__icon"></i>
+      </div>
+      <div class="form__hardware form__container form__hidden">
         <%= f.input :bridge %>
         <%= f.input :nut_material %>
         <%= f.input :tuning_machines %>
@@ -50,7 +72,7 @@
       <%= f.input :photo, as: :file %>
     </div>
   </div>
-  <%= f.button :submit, class:"btn btn-primary" %>
-
-
+  <div class="form__submit__button">
+    <%= f.button :submit, class:"btn btn-primary" %>
+  </div>
 <% end %>
