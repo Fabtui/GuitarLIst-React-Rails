@@ -30,10 +30,13 @@
   justify-content: center;
   img {
     position: relative;
-    min-width: 80%;
+    min-width: 100%;
     max-width: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    opacity: 0;
+    animation: opacity 0.5s;
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
   }
   .close__button {
     position: absolute;
@@ -48,15 +51,55 @@
 }
 
 .guitar__image__zoom__container.hidden {
-  top: 100vh;
-  height: 0;
+  display: none;
   overflow: hidden;
-  transition: all 0.1s;
   padding: 0px;
-  img {
-    height: 0;
-  }
   .close__button {
     display: none;
+  }
+}
+
+.box-animation {
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  background: white;
+  animation: anime 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes anime {
+  0% {
+    width: 2px;
+    height: 2px;
+  }
+
+  30% {
+    width: 2px;
+    height: 20vw;
+  }
+
+  // 50% {
+    //   width: 60%;
+    //   height: 300px;
+    // }
+
+    100% {
+    padding: 24px;
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    border-radius: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    border-radius: 8px;
   }
 }
