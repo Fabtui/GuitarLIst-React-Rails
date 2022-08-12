@@ -18,7 +18,15 @@
         <%= f.input :body_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut'] %>
         <%= f.input :body_top_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Flamed Maple' ,'Quilted Maple', 'Mohagany', 'Poplar Burl','Okoume', 'Swamp Ash', 'Walnut', 'Zebra Wood'] %>
       </div>
-      <div class="col-md">
+      <h4>Pickups</h4>
+      <div class="form__pickups">
+        <%= f.input :pickups_configuration, hint:'HSH, SSS,...' %>
+        <%= f.input :neck_pickup_id, label: 'Neck Pickup', collection: @pickups %>
+        <%= f.input :center_pickup_id, label: 'Center Pickup', collection: @pickups %>
+        <%= f.input :bridge_pickup_id, label: 'Bridge Pickup', collection: @pickups %>
+      </div>
+    </div>
+    <div class="col-md">
       <h4>Neck</h4>
       <div class="form__neck">
         <%= f.input :neck_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut']  %>
@@ -33,18 +41,12 @@
         <%= f.input :frets_number, collection: 21..27 %>
         <%= f.input :frets_type %>
       </div>
-      <h4>Pickups</h4>
-      <div class="form__pickups">
-        <%= f.input :pickups_configuration, hint:'HSH, SSS,...' %>
-        <%= f.input :neck_pickup_id, label: 'Neck Pickup', collection: @pickups %>
-        <%= f.input :center_pickup_id, label: 'Center Pickup', collection: @pickups %>
-        <%= f.input :bridge_pickup_id, label: 'Bridge Pickup', collection: @pickups %>
-      </div>
       <h4>Hardware</h4>
+      <div class="form__hardware">
         <%= f.input :bridge %>
         <%= f.input :nut_material %>
         <%= f.input :tuning_machines %>
-      <div class="form__hardware">
+      </div>
       <%= f.input :photo, as: :file %>
     </div>
   </div>
