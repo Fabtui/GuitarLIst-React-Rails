@@ -1,6 +1,7 @@
 class Api::V1::GuitarsController < ActionController::Base
   def index
-    @guitars = Guitar.where(user_id: current_user.id).order(created_at: :asc)
+    # @guitars = Guitar.where(user_id: current_user.id).order(name: :asc).group_by(&:brand);
+    @guitars = Guitar.where(user_id: current_user.id).order(brand: :asc).order(name: :asc)
     render json: @guitars
   end
 
