@@ -1,33 +1,54 @@
 <%= simple_form_for @guitar do |f| %>
-  <%= f.input :brand, collection: BRANDS.sort %>
-  <%= f.input :name %>
-  <%= f.input :year, collection: 1940..Time.now.year %>
-  <%= f.input :serial_number %>
-  <%= f.input :made_in, collection: COUNTRIES.sort, label:'Country' %>
-  <%= f.input :color %>
-  <%= f.input :body_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut'] %>
-  <%= f.input :body_top_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Flamed Maple' ,'Quilted Maple', 'Mohagany', 'Poplar Burl','Okoume', 'Swamp Ash', 'Walnut', 'Zebra Wood'] %>
-  <%= f.input :neck_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut']  %>
-  <%= f.input :fingerboard_wood, collection: ['Maple','Ebony', 'Rosewood', 'Richlite', 'Birdseye Maple', 'Roasted Maple', 'Flamed Maple'] %>
-  <%= f.input :bridge %>
-  <%= f.input :scale_length, hint:'in cm' %>
-  <%= f.input :frets_number, collection: 21..27 %>
-  <%= f.input :frets_type %>
-  <%= f.input :neck_shape %>
-  <%= f.input :neck_radius %>
-  <%= f.input :neck_width_nut %>
-  <%= f.input :neck_width_last_fret %>
-  <%= f.input :neck_finish %>
-  <%= f.input :neck_attachment %>
-  <%= f.input :nut_material %>
-  <%= f.input :tuning_machines %>
-  <%= f.input :pickups_configuration, hint:'HSH, SSS,...' %>
-  <%= f.input :neck_pickup_id, label: 'Neck Pickup', collection: @pickups %>
-  <%= f.input :center_pickup_id, label: 'Center Pickup', collection: @pickups %>
-  <%= f.input :bridge_pickup_id, label: 'Bridge Pickup', collection: @pickups %>
-  <%= f.input :artist %>
-  <%= f.input :purchase_date, collection: 1950..Time.now.year %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
+  <div class="row">
+    <div class="col-md">
+      <h4>Infos</h4>
+      <div class="form__infos">
+        <%= f.input :brand, collection: BRANDS.sort %>
+        <%= f.input :name %>
+        <%= f.input :year, collection: 1940..Time.now.year %>
+        <%= f.input :serial_number %>
+        <%= f.input :made_in, collection: COUNTRIES.sort, label:'Country' %>
+        <%= f.input :artist %>
+        <%= f.input :purchase_date, collection: 1950..Time.now.year %>
+        <%= f.input :price %>
+      </div>
+      <h4>Body</h4>
+      <div class="form__body">
+        <%= f.input :color %>
+        <%= f.input :body_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut'] %>
+        <%= f.input :body_top_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Flamed Maple' ,'Quilted Maple', 'Mohagany', 'Poplar Burl','Okoume', 'Swamp Ash', 'Walnut', 'Zebra Wood'] %>
+      </div>
+      <div class="col-md">
+      <h4>Neck</h4>
+      <div class="form__neck">
+        <%= f.input :neck_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut']  %>
+        <%= f.input :fingerboard_wood, collection: ['Maple','Ebony', 'Rosewood', 'Richlite', 'Birdseye Maple', 'Roasted Maple', 'Flamed Maple'] %>
+        <%= f.input :scale_length, hint:'in cm' %>
+        <%= f.input :neck_shape %>
+        <%= f.input :neck_finish %>
+        <%= f.input :neck_attachment %>
+        <%= f.input :neck_radius %>
+        <%= f.input :neck_width_nut %>
+        <%= f.input :neck_width_last_fret %>
+        <%= f.input :frets_number, collection: 21..27 %>
+        <%= f.input :frets_type %>
+      </div>
+      <h4>Pickups</h4>
+      <div class="form__pickups">
+        <%= f.input :pickups_configuration, hint:'HSH, SSS,...' %>
+        <%= f.input :neck_pickup_id, label: 'Neck Pickup', collection: @pickups %>
+        <%= f.input :center_pickup_id, label: 'Center Pickup', collection: @pickups %>
+        <%= f.input :bridge_pickup_id, label: 'Bridge Pickup', collection: @pickups %>
+      </div>
+      <h4>Hardware</h4>
+        <%= f.input :bridge %>
+        <%= f.input :nut_material %>
+        <%= f.input :tuning_machines %>
+      <div class="form__hardware">
+      <%= f.input :photo, as: :file %>
+    </div>
+  </div>
+  <%= f.button :submit, class:"btn btn-primary" %>
+
+
 <% end %>
