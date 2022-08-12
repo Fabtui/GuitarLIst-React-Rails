@@ -3,14 +3,29 @@ import PropTypes from 'prop-types'
 
 const barsBuilder = (tone, name) => {
   const guides = []
-  const num = Math.round(tone)
+  let num = null
+  if (tone % 2 != 0) {
+    num = Math.round(tone - 1)
+  } else {
+    num = tone
+  }
+  console.log(num, 10 - num);
   for (let i = 1; i <= (10 - num); i++) {
     const key = `${name}-${i}`
     guides.push(<div key={key} className="tone__guide"></div>);
   }
-  for (let i = 1; i <= num; i++) {
-    const key = `${name}-${i}-active`
-    guides.push(<div key={key} className="tone__guide tone__guide__active"></div>);
+  if (tone % 2 != 0) {
+    const key = `${name}-half`
+    guides.push(<div key={key} className="tone__guide tone__guide__half__active"></div>);
+    for (let i = 1; i <= num; i++) {
+      const key = `${name}-${i}-active`
+      guides.push(<div key={key} className="tone__guide tone__guide__active"></div>);
+    }
+  } else {
+    for (let i = 0; i <= num; i++) {
+      const key = `${name}-${i}-active`
+      guides.push(<div key={key} className="tone__guide tone__guide__active"></div>);
+    }
   }
   return guides
 }
