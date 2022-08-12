@@ -33,9 +33,9 @@ class GuitarShow extends React.Component {
           <div onClick={this.displayPic} className="guitar__image__container">
             {photo}
           </div>
-          {this.props.neckPickup ? <PickupShow pickup={this.props.neckPickup}/> : ''}
-          {this.props.centerPickup ? <PickupShow pickup={this.props.centerPickup}/> : ''}
-          {this.props.bridgePickup ? <PickupShow pickup={this.props.bridgePickup}/> : ''}
+          {this.props.neckPickup ? <PickupShow position="Neck" pickup={this.props.neckPickup}/> : ''}
+          {this.props.centerPickup ? <PickupShow position="Center" pickup={this.props.centerPickup}/> : ''}
+          {this.props.bridgePickup ? <PickupShow position="Bridge" pickup={this.props.bridgePickup}/> : ''}
         </ul>
         <div className={picClass}  onClick={this.displayPic}>
           <div className="box-animation">
