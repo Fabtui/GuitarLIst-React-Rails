@@ -1,0 +1,7 @@
+<div id='guitar_list'></div>
+<% content_for :after_js do %>
+  <%= javascript_pack_tag "guitar_list" %>
+<% end %>
+<%= link_to 'New Guitar', new_guitar_path %>
+<%= link_to 'New Pickup', new_pickup_path %>
+<%= link_to "API", api_v1_guitars_path %>
