@@ -26,6 +26,7 @@ class GuitarShow extends React.Component {
     const photo = this.props.selectedGuitar.photo_id ? <img src={src}/> : ''
     const href = `/guitars/${this.props.selectedGuitar.id}/edit`
     const picClass = this.state.hidden ? 'guitar__image__zoom__container hidden' : 'guitar__image__zoom__container'
+    const boxClass = this.state.hidden ? '' : 'box-animation'
     return <div className='guitar__show'>
         <ul>
           <h3>{this.props.selectedGuitar.name}</h3><a href={href}><FontAwesomeIcon icon={faPen} /></a>
@@ -37,10 +38,12 @@ class GuitarShow extends React.Component {
           {this.props.bridgePickup ? <PickupShow pickup={this.props.bridgePickup}/> : ''}
         </ul>
         <div className={picClass}  onClick={this.displayPic}>
-          <div className="close__button" onClick={this.displayPic}>
-            <FontAwesomeIcon icon={faXmark} />
+          <div className="box-animation">
+            <div className="close__button" onClick={this.displayPic}>
+              <FontAwesomeIcon icon={faXmark} />
+            </div>
+            {photo}
           </div>
-          {photo}
         </div>
       </div>
     }
