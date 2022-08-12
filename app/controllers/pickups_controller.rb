@@ -18,6 +18,6 @@ class PickupsController < ApplicationController
   private
 
   def pickup_params
-    params.require(:pickup).permit(:brand, :name, :output, :neck, :center, :bridge, :resistance, :bass, :middle, :treble, :type, :magnet, :active, :description)
+    params.require(:pickup).permit(:brand, :name, :product_name, :output, :neck, :center, :bridge, :resistance, :bass, :middle, :treble, :type, :magnet, :active, :description)
   end
 end

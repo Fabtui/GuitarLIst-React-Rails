@@ -1,6 +1,7 @@
 <%= simple_form_for @pickup do |f| %>
   <%= f.input :brand, collection: PICKUP_BRANDS.sort %>
   <%= f.input :name %>
+  <%= f.input :product_name %>
   <%= f.input :output, hint: 'in mV' %>
   <%= f.input :resistance, hint: 'in Kohm'%>
   <%= f.input :bass %>

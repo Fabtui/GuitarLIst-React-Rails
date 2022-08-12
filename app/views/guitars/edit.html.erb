@@ -1,7 +1,7 @@
 <div class="container edit__container">
   <%= render 'shared/back_link' %>
 
-  <h3>Editing Guitar</h3>
+  <h3>Editing <%= @guitar.brand %> <%= @guitar.name %></h3>
 
   <%= render 'form', guitar: @guitar %>
 </div>

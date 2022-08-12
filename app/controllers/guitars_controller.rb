@@ -34,7 +34,7 @@ class GuitarsController < ApplicationController
     end
     respond_to do |format|
       if @guitar.save
-        format.html { redirect_to guitars_path, notice: "Guitar was successfully created." }
+        format.html { redirect_to root_path, notice: "Guitar was successfully created." }
         format.json { render :show, status: :created, location: @guitar }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class GuitarsController < ApplicationController
           @guitar.photo_id = @guitar.photo.key
           @guitar.save
         end
-        format.html { redirect_to guitars_path, notice: "Guitar was successfully updated." }
+        format.html { redirect_to root_path, notice: "Guitar was successfully updated." }
         format.json { render :show, status: :ok, location: @guitar }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -78,6 +78,6 @@ class GuitarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_params
-      params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :serial_number, :made_in, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id, :purchase_date, :price)
+      params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :body_finish, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :serial_number, :made_in, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id, :purchase_date, :price)
     end
 end
