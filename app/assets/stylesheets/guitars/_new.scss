@@ -1,0 +1,41 @@
+.edit__container, .new__container {
+  padding-top: 24px;
+}
+
+.form__title {
+  display: flex;
+  align-items: center;
+  margin: 32px 0 20px 0;
+  h4 {
+    margin: 0 12px;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.form__container {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  transition: all 0.3s;
+  margin-bottom: 24px;
+}
+
+.form__hidden {
+  transition: all 0.3s;
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.form__submit__button {
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+}

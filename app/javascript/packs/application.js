@@ -7,9 +7,12 @@ import Rails from "@rails/ujs"
 // import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { formClick } from '../components/_form_click'
 
 Rails.start()
 // Turbolinks.start()
 ActiveStorage.start()
 
-console.log('Hello World from Webpacker')
+window.onload = function() {
+  formClick()
+}
