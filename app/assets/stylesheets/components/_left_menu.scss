@@ -1,0 +1,58 @@
+.left__menu {
+  position: absolute;
+  height: calc(100vh - 62px - 24px);
+  background-color: $onyx;
+  color: $white;
+  padding: 2rem;
+  margin-top: 12px;
+  border-radius: 0 0 8px 0;
+  border-top: 2px solid $blood;
+  border-bottom: 2px solid $blood;
+  border-right: 2px solid $blood;
+  transition: cubic-bezier(0, 1.01, 0.54, 0.96) 0.5s;
+}
+
+.left__menu__fold {
+  transform: translateX(-100%);
+  transition: cubic-bezier(0, 1.01, 0.54, 0.96) 0.5s;
+  animation: left-menu-width 0.5s forwards;
+}
+
+.left__menu__icon {
+  position: absolute;
+  top: -2px;
+  right: -32px;
+  background-color: $onyx;
+  border-top: 2px solid $blood;
+  border-bottom: 2px solid $blood;
+  border-right: 2px solid $blood;
+  padding: 0.5rem;
+  border-radius: 0 8px 8px 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.guitar__list {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    margin-bottom: 1rem;
+    color: $white;
+    h4 {
+      font-size: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    &:hover {
+      cursor: pointer;
+      color: white;
+    }
+  }
+}
+
+.guitar__element__active {
+  border-bottom: 2px solid $blood;
+}
