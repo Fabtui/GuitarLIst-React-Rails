@@ -23,10 +23,11 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in", class:'btn btn-onyx' %>
+          <span class='btn btn-onyx' id='log-in-button'>Log in</span>
+          <%= f.button :submit, "Log in", class:'d-none', id:'link-button' %>
         </div>
       <% end %>
     </div>
-    <%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>
   </div>
 </div>

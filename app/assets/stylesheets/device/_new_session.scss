@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   overflow: hidden;
+  background-color: $onyx;
 }
 
 .new__session__left {
@@ -25,23 +26,27 @@
     width: 100%;
     margin-bottom: 24px;
   }
+  animation-delay: 1s;
 }
 
 .new__session__center {
   background-color: $onyx;
   height: 100%;
   width: 5vw;
-  background: linear-gradient(to right bottom, $white 49%, $onyx 50%)
+  background: linear-gradient(to right bottom, $white 49%, $onyx 50%);
+  animation-delay: 1s;
 }
 
 .new__session__right {
   height: 100%;
+  width: 50vw;
   background-color: $onyx;
   padding: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation-delay: 1s;
 }
 
 .new__session__right__content {
@@ -102,5 +107,25 @@
   }
   .new__session__right {
     width: 100vw;
+  }
+}
+
+@keyframes translate {
+  0% {
+    width: 50vw;
+  }
+
+  100% {
+    width: 100vw;
+  }
+}
+
+@keyframes fade_out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
