@@ -1,8 +1,21 @@
-.navbar-lewagon {
+.navbar-guitarlist {
+  position: relative;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: $onyx;
   height: 62px;
   border-bottom: 2px solid $blood;
+  padding: 0 24px;
+  z-index: 999;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar__item {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -23,9 +36,73 @@
   }
 }
 
+.fa-bars::before {
+  content: "\f0c9";
+  font-size: 32px;
+}
+
+.fa-xmark::before {
+  content: "\f00d";
+  font-size: 32px;
+}
+
+.nav-item {
+  color: $white;
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
+}
+
 .nav-link {
   color: $white;
   &:hover {
     color: white;
   }
+}
+
+.nav-dropdown {
+  z-index: 9;
+  width: 145px;
+  background-color: $onyx;
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  border-radius: 0 0 8px 8px;
+  border-left: 2px solid $blood;
+  border-right: 2px solid $blood;
+  border-bottom: 2px solid $blood;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  transition: 0.2s;
+  transform: translateY(0%);
+  ul {
+    padding: 24px 24px 0 24px;
+    margin: 0;
+  }
+}
+
+.nav-dropdown-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  margin-bottom: 1rem;
+  a {
+    color: $white;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.2s;
+    &:hover {
+      transition: 0.2s;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.menu__hidden {
+  opacity: 0;
+  transition: 0.2s;
+  transform: translateY(-120%);
 }

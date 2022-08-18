@@ -4,7 +4,7 @@ export const formClick = () => {
     formTitles.forEach(formTitle => {
       const formContent = document.querySelector(`.${formTitle.dataset.name}`)
       const formIcon = document.querySelector(`#${formTitle.dataset.name}__icon`)
-      formTitle.addEventListener('click', (e) => {
+      formTitle.addEventListener('click', () => {
         if (formContent.classList.contains('form__hidden')) {
           formIcon.classList.replace('fa-angle-down', 'fa-angle-up');
         } else {
