@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { formClick } from '../components/_form_click'
 import { loginAnim } from '../components/_log_in_anim'
+import { menuDisplay } from '../components/_menu_display'
 
 Rails.start()
 // Turbolinks.start()
@@ -17,4 +18,5 @@ ActiveStorage.start()
 window.onload = function() {
   formClick()
   loginAnim()
+  menuDisplay()
 }
