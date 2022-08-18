@@ -25,7 +25,7 @@ class GuitarElement extends React.Component {
 
   render () {
     const style = (this.props.guitar === this.props.selectedGuitar) ? 'guitar__element__active' : ''
-    return <li><h4 className={style} onClick={this.handleClick} id={this.props.guitar.id}>{this.props.guitar.brand} {this.props.guitar.name} {this.props.guitar.year}</h4></li>
+    return <li><h4 className={style} onClick={this.handleClick} id={this.props.guitar.id}>{this.props.guitar.brand} {this.props.guitar.name}</h4></li>
   }
 }
 

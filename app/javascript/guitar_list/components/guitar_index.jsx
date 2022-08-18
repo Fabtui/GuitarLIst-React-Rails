@@ -1,16 +1,35 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import GuitarList from '../containers/guitar_list'
 import GuitarShow from '../containers/guitar_show'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 export default class GuitarIndex extends React.Component {
+  constructor (props) {
+    super (props)
+    this.state = {
+      fold: false
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.setState({
+      fold: !this.state.fold
+    })
+  }
 
   render () {
-    return <div className='container app__container'>
-      <div className="left__window">
+    const faName = this.state.fold? faAngleDoubleRight : faAngleDoubleLeft
+    const classname = this.state.fold? 'left__menu left__menu__fold' : 'left__menu'
+    return <div className='app__container'>
+      <div className={classname}>
         <GuitarList/>
+      <div className="left__menu__icon">
+        <FontAwesomeIcon id='left__menu__icon' onClick={this.handleClick} icon={faName} />
       </div>
-      <div className="right__window">
+      </div>
+      <div className="right__window container">
         <GuitarShow/>
       </div>
       </div>

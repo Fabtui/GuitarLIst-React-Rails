@@ -11,7 +11,6 @@ const barsBuilder = (tone, name) => {
   } else {
     num = tone
   }
-  console.log(num, 10 - num);
   for (let i = 1; i <= (10 - num); i++) {
     const key = `${name}-${i}`
     guides.push(<div key={key} className="tone__guide"></div>);
