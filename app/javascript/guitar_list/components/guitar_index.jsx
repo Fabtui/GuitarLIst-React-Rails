@@ -26,7 +26,9 @@ export default class GuitarIndex extends React.Component {
     return <div className='app__container'>
         <Navbar/>
       <div className={classname}>
-        <GuitarList/>
+        <div className="left__menu__content">
+          <GuitarList/>
+        </div>
       <div className="left__menu__icon">
         <FontAwesomeIcon id='left__menu__icon' onClick={this.handleClick} icon={faName} />
       </div>
