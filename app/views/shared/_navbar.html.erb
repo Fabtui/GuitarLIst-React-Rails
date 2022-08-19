@@ -1,41 +1,43 @@
-<div class="navbar navbar-guitarlist">
-  <div class="navbar__item">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <h4>GuitarList</h4>
-    <% end %>
-  </div>
-  <div class="navbar__item" id="menu__bars">
-    <div class="nav-item">
-      <i class="fa-solid fa-bars"></i>
+<% unless controller_name == 'pages' && action_name == 'home' %>
+  <div class="navbar navbar-guitarlist">
+    <div class="navbar__item">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <h4>GuitarList</h4>
+      <% end %>
+    </div>
+    <div class="navbar__item" id="menu__bars">
+      <div class="nav-item">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="nav-dropdown menu__hidden">
+      <ul>
+        <% if user_signed_in? %>
+          <% unless controller_name == 'pages' && action_name == 'home' %>
+          <li class="nav-dropdown-item">
+            <%= link_to 'Guitars', root_path %>
+          </li>
+          <% end %>
+          <%= %>
+          <li class="nav-dropdown-item">
+            <%= link_to 'New Guitar', new_guitar_path %>
+          </li>
+          <li class="nav-dropdown-item">
+            <%= link_to 'New Pickup', new_pickup_path %>
+          </li>
+          <li class="nav-dropdown-item">
+            <%= link_to "Guitars API", api_v1_guitars_path %>
+          </li>
+          <li class="nav-dropdown-item">
+            <%= link_to "Pickups API", api_v1_pickups_path %>
+          </li>
+          <li class="nav-dropdown-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+              <i id='menu__icon' class="fa-solid fa-arrow-right-from-bracket"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
-  <div class="nav-dropdown menu__hidden">
-    <ul>
-      <% if user_signed_in? %>
-        <% unless controller_name == 'pages' && action_name == 'home' %>
-        <li class="nav-dropdown-item">
-          <%= link_to 'Guitars', root_path %>
-        </li>
-        <% end %>
-        <%= %>
-        <li class="nav-dropdown-item">
-          <%= link_to 'New Guitar', new_guitar_path %>
-        </li>
-        <li class="nav-dropdown-item">
-          <%= link_to 'New Pickup', new_pickup_path %>
-        </li>
-        <li class="nav-dropdown-item">
-          <%= link_to "Guitars API", api_v1_guitars_path %>
-        </li>
-        <li class="nav-dropdown-item">
-          <%= link_to "Pickups API", api_v1_pickups_path %>
-        </li>
-        <li class="nav-dropdown-item">
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-            <i id='menu__icon' class="fa-solid fa-arrow-right-from-bracket"></i>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<% end %>

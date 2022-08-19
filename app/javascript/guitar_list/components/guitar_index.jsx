@@ -1,6 +1,7 @@
 import React from 'react'
 import GuitarList from '../containers/guitar_list'
 import GuitarShow from '../containers/guitar_show'
+import Navbar from './navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -23,6 +24,8 @@ export default class GuitarIndex extends React.Component {
     const faName = this.state.fold? faAngleDoubleRight : faAngleDoubleLeft
     const classname = this.state.fold? 'left__menu left__menu__fold' : 'left__menu'
     return <div className='app__container'>
+        <Navbar/>
+      <div className="left__menu__icon"></div>
       <div className={classname}>
         <GuitarList/>
       <div className="left__menu__icon">
