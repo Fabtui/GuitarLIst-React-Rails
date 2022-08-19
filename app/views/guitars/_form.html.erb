@@ -60,6 +60,7 @@
         <%= f.input :neck_width_last_fret %>
         <%= f.input :frets_number, collection: 21..27 %>
         <%= f.input :frets_type %>
+        <%= f.input :nut_material %>
       </div>
       <div class="form__title form__title__hardware" data-name="form__hardware">
         <%= image_tag("icon-guitar-hardware.png") %>
@@ -68,7 +69,6 @@
       </div>
       <div class="form__hardware form__container form__hidden">
         <%= f.input :bridge %>
-        <%= f.input :nut_material %>
         <%= f.input :tuning_machines %>
       </div>
       <%= f.input :photo, as: :file %>
