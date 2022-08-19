@@ -33,7 +33,7 @@ class GuitarShow extends React.Component {
     const picClass = this.state.hidden ? 'guitar__image__zoom__container hidden' : 'guitar__image__zoom__container'
     // const boxClass = this.state.hidden ? '' : 'box-animation'
     return <div className='guitar__show'>
-          <h3>{guitar.name}</h3>
+          <h3>{guitar.brand} {guitar.name}</h3>
           <div className="guitar__show__container">
             <div className="guitar__show__infos">
               <img src={miscLogo} alt="misc-logo" />
