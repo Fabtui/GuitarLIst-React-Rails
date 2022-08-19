@@ -65,7 +65,7 @@ class GuitarsController < ApplicationController
     @guitar.destroy
 
     respond_to do |format|
-      format.html { redirect_to guitars_url, notice: "Guitar was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Guitar was successfully destroyed." }
       format.json { head :no_content }
     end
   end

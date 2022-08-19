@@ -4,4 +4,8 @@
   <h3>Editing <%= @guitar.brand %> <%= @guitar.name %></h3>
 
   <%= render 'form', guitar: @guitar %>
+
+  <div class="delete_link">
+    <%= link_to 'Delete', guitar_path(@guitar.id), method: :delete, class:'btn btn-danger' %>
+  </div>
 </div>
