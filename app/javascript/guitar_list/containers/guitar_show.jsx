@@ -7,6 +7,7 @@ import PickupShow from '../components/pickup_show';
 import miscLogo from '../../../assets/images/icon-guitar-misc.png';
 import bodyLogo from '../../../assets/images/icon-guitar-body.png';
 import neckLogo from '../../../assets/images/icon-guitar-neck.png';
+import backgroundImage from '../../../assets/images/Gibson-Les-Paul-1950s-Template.jpg'
 import electronicsLogo from '../../../assets/images/icon-guitar-electronics.png';
 import hardwareLogo from '../../../assets/images/icon-guitar-hardware.png';
 
@@ -198,6 +199,13 @@ class GuitarShow extends React.Component {
             </div>
             {photo}
           </div>
+        </div>
+      </div>
+    } else {
+    return <div className='guitar__show guitar__show__empty'>
+        <h3>Welcome in GuitarList</h3>
+        <div className="guitar__show__empty__image">
+          <img src={backgroundImage} alt="background" id="background-image" />
         </div>
       </div>
     }
