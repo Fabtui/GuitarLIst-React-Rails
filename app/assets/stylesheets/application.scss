@@ -13,3 +13,6 @@
 @import "guitars/index";
 @import "device/index.scss";
 
+::-webkit-scrollbar {
+  display: none;
+}

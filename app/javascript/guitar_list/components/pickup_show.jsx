@@ -104,10 +104,10 @@ export default class PickupShow extends React.Component {
                 <td>Active</td>
                 <td>{pickup.active ? <span>Yes</span> : <span>No</span>}</td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td>Description</td>
                 <td>{pickup.description ? <span>{pickup.description}</span> : ''}</td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
