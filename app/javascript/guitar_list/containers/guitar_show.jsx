@@ -106,11 +106,11 @@ class GuitarShow extends React.Component {
                     </tr>
                     <tr>
                       <td>Scale Length</td>
-                      <td>{guitar.scale_length}</td>
+                      <td>{guitar.scale_length ? <span>{guitar.scale_length}mm</span> : ''}</td>
                     </tr>
                     <tr>
                       <td>Fret Number</td>
-                      <td>{guitar.frets_number}</td>
+                      <td>{guitar.frets_number ? <span>{guitar.frets_number}mm</span> : ''}</td>
                     </tr>
                     <tr>
                       <td>Fret Type</td>
@@ -122,15 +122,15 @@ class GuitarShow extends React.Component {
                     </tr>
                     <tr>
                       <td>Radius</td>
-                      <td>{guitar.neck_radius}</td>
+                      <td>{guitar.neck_radius ? <span>{guitar.neck_radius}mm</span> : ''}</td>
                     </tr>
                     <tr>
                       <td>Neck Width Nut</td>
-                      <td>{guitar.neck_width_nut}</td>
+                      <td>{guitar.neck_width_nut ? <span>{guitar.neck_width_nut}mm</span> : ''}</td>
                     </tr>
                     <tr>
                       <td>Neck Width Last Fret</td>
-                      <td>{guitar.neck_width_last_fret}</td>
+                      <td>{guitar.neck_width_last_fret ? <span>{guitar.neck_width_last_fret}mm</span> : ''}</td>
                     </tr>
                     <tr>
                       <td>Finish</td>

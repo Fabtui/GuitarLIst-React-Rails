@@ -117,6 +117,7 @@ Guitar.create!(
   neck_width_nut: '42',
   neck_attachment: '4 Bolds',
   neck_finish: 'Gloss Polyurethane',
+  nut_material: 'Synthetic Bone',
   pickups_configuration: 'SSS',
   tuning_machines: 'Fender/Ping Vintage Style Tuning Machine'
 )
