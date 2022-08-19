@@ -96,7 +96,7 @@ custom69 = Pickup.create!(brand: 'Fender',
           )
 
 Guitar.create!(
-  name: 'Stratocaster',
+  name: "Stratocaster Classic Player '60s",
   brand: 'Fender',
   user_id: user.id,
   neck_pickup_id: custom69.id,

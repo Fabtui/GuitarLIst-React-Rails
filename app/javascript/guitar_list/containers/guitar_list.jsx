@@ -15,10 +15,8 @@ class GuitarList extends React.Component {
 
   render () {
     return <div className='guitar__list'>
-        <ul>
           {this.props.guitars.map(guitar => <GuitarElement key={guitar.id} guitar={guitar} pickups={this.props.pickups}/>)}
-        </ul>
-      </div>
+        </div>
   }
 }
 
