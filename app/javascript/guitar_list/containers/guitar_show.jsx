@@ -31,54 +31,162 @@ class GuitarShow extends React.Component {
     const src = `http://res.cloudinary.com/drzsrupmq/image/upload/v1/development/${guitar.photo_id}`
     const photo = guitar.photo_id ? <img src={src}/> : ''
     const picClass = this.state.hidden ? 'guitar__image__zoom__container hidden' : 'guitar__image__zoom__container'
-    const boxClass = this.state.hidden ? '' : 'box-animation'
+    // const boxClass = this.state.hidden ? '' : 'box-animation'
     return <div className='guitar__show'>
-        <ul>
           <h3>{guitar.name}</h3>
-          <div onClick={this.displayPic} className="guitar__image__container">
-            {photo}
+          <div className="guitar__show__container">
+            <div className="guitar__show__infos">
+              <img src={miscLogo} alt="misc-logo" />
+              <table className="table guitar__show__table">
+                <tbody>
+                  <tr>
+                    <td>Brand</td>
+                    <td>{guitar.brand}</td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td>{guitar.name}</td>
+                  </tr>
+                  <tr>
+                    <td>Year</td>
+                    <td>{guitar.year}</td>
+                  </tr>
+                  <tr>
+                    <td>Serial Number</td>
+                    <td>{guitar.serial_number}</td>
+                  </tr>
+                  <tr>
+                    <td>Made In</td>
+                    <td>{guitar.made_in}</td>
+                  </tr>
+                  <tr>
+                    <td>Color</td>
+                    <td>{guitar.color}</td>
+                  </tr>
+                  <tr>
+                    <td>Artist</td>
+                    <td>{guitar.artist}</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>{guitar.price}</td>
+                  </tr>
+                  <tr>
+                    <td>Purchase Date</td>
+                    <td>{guitar.purchase_date}</td>
+                  </tr>
+                </tbody>
+
+              <img src={bodyLogo} alt="body-logo" />
+                  <tbody>
+                    <tr>
+                      <td>Wood</td>
+                      <td>{guitar.body_wood}</td>
+                    </tr>
+                    <tr>
+                      <td>Finish</td>
+                      <td>{guitar.body_finish}</td>
+                    </tr>
+                    <tr>
+                      <td>Top Wood</td>
+                      <td>{guitar.body_top_wood}</td>
+                    </tr>
+                  </tbody>
+
+
+              <img src={neckLogo} alt="neck-logo" />
+                  <tbody>
+                    <tr>
+                      <td>Wood</td>
+                      <td>{guitar.neck_wood}</td>
+                    </tr>
+                    <tr>
+                      <td>Figerboard</td>
+                      <td>{guitar.fingerboard_wood}</td>
+                    </tr>
+                    <tr>
+                      <td>Scale Length</td>
+                      <td>{guitar.scale_length}</td>
+                    </tr>
+                    <tr>
+                      <td>Fret Number</td>
+                      <td>{guitar.frets_number}</td>
+                    </tr>
+                    <tr>
+                      <td>Fret Type</td>
+                      <td>{guitar.frets_type}</td>
+                    </tr>
+                    <tr>
+                      <td>Neck Shape</td>
+                      <td>{guitar.neck_shape}</td>
+                    </tr>
+                    <tr>
+                      <td>Radius</td>
+                      <td>{guitar.neck_radius}</td>
+                    </tr>
+                    <tr>
+                      <td>Neck Width Nut</td>
+                      <td>{guitar.neck_width_nut}</td>
+                    </tr>
+                    <tr>
+                      <td>Neck Width Last Fret</td>
+                      <td>{guitar.neck_width_last_fret}</td>
+                    </tr>
+                    <tr>
+                      <td>Finish</td>
+                      <td>{guitar.neck_finish}</td>
+                    </tr>
+                    <tr>
+                      <td>Attachment</td>
+                      <td>{guitar.neck_attachment}</td>
+                    </tr>
+                    <tr>
+                      <td>Nut Material</td>
+                      <td>{guitar.nut_material}</td>
+                    </tr>
+                  </tbody>
+
+
+              <img src={electronicsLogo} alt="electronics-logo" />
+                  <tbody>
+                    <tr>
+                      <td>Configuration</td>
+                      <td>{guitar.pickups_configuration}</td>
+                    </tr>
+                    <tr>
+                      <td>Neck</td>
+                      <td>{this.props.neckPickup ? <PickupShow position="Neck" pickup={this.props.neckPickup}/> : ''}</td>
+                    </tr>
+                    <tr>
+                      <td>Center</td>
+                      <td>{this.props.centerPickup ? <PickupShow position="Center" pickup={this.props.centerPickup}/> : ''}</td>
+                    </tr>
+                    <tr>
+                      <td>Bridge</td>
+                      <td>{this.props.bridgePickup ? <PickupShow position="Bridge" pickup={this.props.bridgePickup}/> : ''}</td>
+                    </tr>
+                  </tbody>
+
+
+              <img src={hardwareLogo} alt="hardware-logo" />
+                  <tbody>
+                    <tr>
+                      <td>Tuning Machines</td>
+                      <td>{guitar.tuning_machines}</td>
+                    </tr>
+                    <tr>
+                      <td>Bridge</td>
+                      <td>{guitar.bridge}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div onClick={this.displayPic} className="guitar__image__container">
+              <div className="guitar__image">
+                {photo}
+              </div>
+            </div>
           </div>
-
-          <img src={miscLogo} alt="misc-logo" />
-          <h5>{guitar.brand}</h5>
-          <h5>{guitar.name}</h5>
-          <h5>{guitar.year}</h5>
-          <h5>{guitar.serial_number}</h5>
-          <h5>{guitar.made_in}</h5>
-          <h5>{guitar.color}</h5>
-          <h5>{guitar.artist}</h5>
-          <h5>{guitar.price}</h5>
-          <h5>{guitar.purchase_date}</h5>
-
-          <img src={bodyLogo} alt="body-logo" />
-          <h5>{guitar.body_wood}</h5>
-          <h5>{guitar.body_finish}</h5>
-          <h5>{guitar.body_top_wood}</h5>
-
-          <img src={neckLogo} alt="neck-logo" />
-          <h5>{guitar.neck_wood}</h5>
-          <h5>{guitar.fingerboard_wood}</h5>
-          <h5>{guitar.scale_length}</h5>
-          <h5>{guitar.frets_number}</h5>
-          <h5>{guitar.frets_type}</h5>
-          <h5>{guitar.neck_shape}</h5>
-          <h5>{guitar.neck_radius}</h5>
-          <h5>{guitar.neck_width_nut}</h5>
-          <h5>{guitar.neck_width_last_fret}</h5>
-          <h5>{guitar.neck_finish}</h5>
-          <h5>{guitar.neck_attachment}</h5>
-          <h5>{guitar.nut_material}</h5>
-
-          <img src={electronicsLogo} alt="electronics-logo" />
-          <h5>{guitar.pickups_configuration}</h5>
-          {this.props.neckPickup ? <PickupShow position="Neck" pickup={this.props.neckPickup}/> : ''}
-          {this.props.centerPickup ? <PickupShow position="Center" pickup={this.props.centerPickup}/> : ''}
-          {this.props.bridgePickup ? <PickupShow position="Bridge" pickup={this.props.bridgePickup}/> : ''}
-
-          <img src={hardwareLogo} alt="hardware-logo" />
-          <h5>{guitar.tuning_machines}</h5>
-          <h5>{guitar.bridge}</h5>
-        </ul>
         <div className={picClass}  onClick={this.displayPic}>
           <div className="box-animation">
             <div className="close__button" onClick={this.displayPic}>

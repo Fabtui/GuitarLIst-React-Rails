@@ -1,4 +1,5 @@
 .left__menu {
+  z-index: 9999;
   position: absolute;
   height: calc(100vh - 62px - 24px);
   background-color: $onyx;
