@@ -10,6 +10,7 @@ import "channels"
 import { formClick } from '../components/_form_click'
 import { loginAnim } from '../components/_log_in_anim'
 import { menuDisplay } from '../components/_menu_display'
+import { deleteSweetAlert } from '../components/_delete_sweet_alert'
 
 Rails.start()
 // Turbolinks.start()
@@ -19,4 +20,5 @@ window.onload = function() {
   formClick()
   loginAnim()
   menuDisplay()
+  deleteSweetAlert()
 }

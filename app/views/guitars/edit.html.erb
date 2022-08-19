@@ -5,7 +5,8 @@
 
   <%= render 'form', guitar: @guitar %>
 
-  <div class="delete_link">
-    <%= link_to 'Delete', guitar_path(@guitar.id), method: :delete, class:'btn btn-danger' %>
+  <div class="delete-link-container">
+    <button class='btn btn-danger' id='delete-button'>Delete</button>
+    <%= link_to 'Delete', guitar_path(@guitar.id), method: :delete, class:'btn btn-danger d-none', id:'delete-link' %>
   </div>
 </div>
