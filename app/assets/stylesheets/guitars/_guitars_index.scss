@@ -1,0 +1,10 @@
+.guitar__show__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.guitar__show__container {
+  img {
+    transform: rotate(270deg);
+  }
+}

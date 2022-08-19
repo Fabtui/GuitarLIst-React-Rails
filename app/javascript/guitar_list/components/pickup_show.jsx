@@ -55,7 +55,7 @@ export default class PickupShow extends React.Component {
     const trebleBars = barsBuilder(this.props.pickup.treble, 'treble')
     return <div className='pickup__show__container'>
         <div onClick={this.handleClick} className="pickup__title">
-        <h5>{this.props.position} pickup: {this.props.pickup.brand} {this.props.pickup.name}</h5>
+        {this.props.pickup.brand} {this.props.pickup.name}
           <FontAwesomeIcon icon={faName} />
         </div>
         <div className={classname}>
