@@ -10,7 +10,7 @@
 .guitar__image {
   position: sticky;
   top: 80px;
-  height: 80vh;
+  height: 78vh;
   overflow: hidden;
   img {
     height: 100%;
@@ -20,7 +20,11 @@
   }
 }
 
-.guitar__show__infos img {
-  margin-top: 32px;
-  margin-bottom: 16px;
+.guitar__show__infos {
+  height: 78vh;
+  overflow: scroll;
+  img {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
 }

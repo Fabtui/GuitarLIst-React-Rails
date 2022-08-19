@@ -25,7 +25,6 @@ export default class GuitarIndex extends React.Component {
     const classname = this.state.fold? 'left__menu left__menu__fold' : 'left__menu'
     return <div className='app__container'>
         <Navbar/>
-      <div className="left__menu__icon"></div>
       <div className={classname}>
         <GuitarList/>
       <div className="left__menu__icon">
