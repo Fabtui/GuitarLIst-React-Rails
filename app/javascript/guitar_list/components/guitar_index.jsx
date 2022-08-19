@@ -9,7 +9,7 @@ export default class GuitarIndex extends React.Component {
   constructor (props) {
     super (props)
     this.state = {
-      fold: false
+      fold: true
     }
     this.handleClick = this.handleClick.bind(this)
   }
