@@ -11,7 +11,7 @@
   }
   svg {
     color: rgba(0, 0, 0, 0.5);
-    // margin-left: 8px;
+    margin-left: 8px;
   }
   &:hover {
     cursor: pointer;
@@ -23,11 +23,15 @@
   transition: 0.2s;
   height: auto;
   overflow: hidden;
+  padding: 16px;
+  border-radius: 8px;
 }
 
 .hidden {
   transition: 0.2s;
   height: 0;
+  padding: 0;
+  border-radius: 0;
 }
 
 .pickup__tone__row {

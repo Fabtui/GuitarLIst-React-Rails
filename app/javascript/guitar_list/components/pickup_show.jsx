@@ -48,36 +48,68 @@ export default class PickupShow extends React.Component {
 
   render () {
     const classname = this.state.fold? 'pickup__details hidden' : 'pickup__details'
+    const pickup = this.props.pickup
     const faName = this.state.fold? faAngleDown : faAngleUp
-    const bassBars = barsBuilder(this.props.pickup.bass, 'bass')
-    const lowMidBars = barsBuilder(this.props.pickup.low_middle, 'low-middle')
-    const highMidBars = barsBuilder(this.props.pickup.high_middle, 'high-middle')
-    const trebleBars = barsBuilder(this.props.pickup.treble, 'treble')
+    const bassBars = barsBuilder(pickup.bass, 'bass')
+    const lowMidBars = barsBuilder(pickup.low_middle, 'low-middle')
+    const highMidBars = barsBuilder(pickup.high_middle, 'high-middle')
+    const trebleBars = barsBuilder(pickup.treble, 'treble')
     return <div className='pickup__show__container'>
         <div onClick={this.handleClick} className="pickup__title">
-        {this.props.pickup.brand} {this.props.pickup.name}
+        {pickup.brand} {pickup.name}
           <FontAwesomeIcon icon={faName} />
         </div>
         <div className={classname}>
-          {this.props.pickup.output ? <h6>Output: {this.props.pickup.output}mV</h6> : <h6>Output:</h6>}
           <div className="pickup__tone__row">
             <div className="tone__col tone__bass">
               {bassBars}
-              <h6>Bass: {this.props.pickup.bass}</h6>
+              <h6>Bass: {pickup.bass}</h6>
             </div>
             <div className="tone__col tone__lowmid">
               {lowMidBars}
-              <h6>Low Mid: {this.props.pickup.low_middle}</h6>
+              <h6>Low Mid: {pickup.low_middle}</h6>
             </div>
             <div className="tone__col tone__highmid">
               {highMidBars}
-              <h6>High Mid: {this.props.pickup.high_middle}</h6>
+              <h6>High Mid: {pickup.high_middle}</h6>
             </div>
             <div className="tone__col tone__treble">
               {trebleBars}
-              <h6>Treble: {this.props.pickup.treble}</h6>
+              <h6>Treble: {pickup.treble}</h6>
             </div>
           </div>
+          <table className="table guitar__show__table">
+            <tbody>
+              <tr>
+                <td>Product Name</td>
+                <td>{pickup.product_name ? <span>{pickup.product_name}</span> : ''}</td>
+              </tr>
+              <tr>
+                <td>Output</td>
+                <td>{pickup.output ? <span>{pickup.output}mV</span> : ''}</td>
+              </tr>
+              <tr>
+                <td>Resistance</td>
+                <td>{pickup.resistance ? <span>{pickup.resistance}Ω</span> : ''}</td>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td>{pickup.pickup_type ? <span>{pickup.pickup_type}</span> : ''}</td>
+              </tr>
+              <tr>
+                <td>Magnet</td>
+                <td>{pickup.magnet ? <span>{pickup.magnet}</span> : ''}</td>
+              </tr>
+              <tr>
+                <td>Active</td>
+                <td>{pickup.active ? <span>Yes</span> : <span>No</span>}</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>{pickup.description ? <span>{pickup.description}</span> : ''}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
   }

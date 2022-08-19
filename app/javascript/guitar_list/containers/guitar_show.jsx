@@ -37,7 +37,7 @@ class GuitarShow extends React.Component {
           <div className="guitar__show__container">
             <div className="guitar__show__infos">
               <img src={miscLogo} alt="misc-logo" />
-              <table className="table table__misc">
+              <table className="table guitar__show__table">
                 <tbody>
                   <tr>
                     <td>Brand</td>
@@ -76,9 +76,8 @@ class GuitarShow extends React.Component {
                     <td>{guitar.purchase_date}</td>
                   </tr>
                 </tbody>
-              </table>
+
               <img src={bodyLogo} alt="body-logo" />
-                <table className="table table__body">
                   <tbody>
                     <tr>
                       <td>Wood</td>
@@ -93,10 +92,9 @@ class GuitarShow extends React.Component {
                       <td>{guitar.body_top_wood}</td>
                     </tr>
                   </tbody>
-                </table>
+
 
               <img src={neckLogo} alt="neck-logo" />
-                <table className="table table__neck">
                   <tbody>
                     <tr>
                       <td>Wood</td>
@@ -147,10 +145,9 @@ class GuitarShow extends React.Component {
                       <td>{guitar.nut_material}</td>
                     </tr>
                   </tbody>
-                </table>
+
 
               <img src={electronicsLogo} alt="electronics-logo" />
-                <table className="table table__electronics">
                   <tbody>
                     <tr>
                       <td>Configuration</td>
@@ -169,10 +166,9 @@ class GuitarShow extends React.Component {
                       <td>{this.props.bridgePickup ? <PickupShow position="Bridge" pickup={this.props.bridgePickup}/> : ''}</td>
                     </tr>
                   </tbody>
-                </table>
+
 
               <img src={hardwareLogo} alt="hardware-logo" />
-                <table className="table table__hardware">
                   <tbody>
                     <tr>
                       <td>Tuning Machines</td>
