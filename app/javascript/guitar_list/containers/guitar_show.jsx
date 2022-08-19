@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import PickupShow from '../components/pickup_show';
 import miscLogo from '../../../assets/images/icon-guitar-misc.png';
 import bodyLogo from '../../../assets/images/icon-guitar-body.png';
@@ -30,12 +30,11 @@ class GuitarShow extends React.Component {
     const guitar = this.props.selectedGuitar
     const src = `http://res.cloudinary.com/drzsrupmq/image/upload/v1/development/${guitar.photo_id}`
     const photo = guitar.photo_id ? <img src={src}/> : ''
-    const href = `/guitars/${guitar.id}/edit`
     const picClass = this.state.hidden ? 'guitar__image__zoom__container hidden' : 'guitar__image__zoom__container'
     const boxClass = this.state.hidden ? '' : 'box-animation'
     return <div className='guitar__show'>
         <ul>
-          <h3>{guitar.name}</h3><a href={href}><FontAwesomeIcon icon={faPen} /></a>
+          <h3>{guitar.name}</h3>
           <div onClick={this.displayPic} className="guitar__image__container">
             {photo}
           </div>
