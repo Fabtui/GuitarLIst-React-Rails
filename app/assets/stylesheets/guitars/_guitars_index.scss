@@ -7,16 +7,21 @@
   margin-top: 16px;
 }
 
-.guitar__image {
-  position: sticky;
-  top: 80px;
+.guitar__image__container {
   height: 78vh;
   overflow: hidden;
+}
+
+.guitar__image {
+  height: 100%;
+  width: 100%;
   img {
+    transform: rotate(270deg);
+    object-position: top;
     height: 100%;
+    max-width: 78vh;
     object-fit: contain;
-    transform: rotate(270deg) scale(1.2);
-    border-radius: 4px;
+    padding-top: 10vw;
   }
 }
 
@@ -30,5 +35,21 @@
   img {
     margin-top: 32px;
     margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .guitar__show__container {
+    display: block;
+  }
+  .guitar__image__container {
+    margin-top: 16px;
+  }
+  .guitar__show h3 {
+    padding-left: 24px;
+  }
+  .guitar__image img {
+    object-position: top;
+    margin-left: 15vw;
   }
 }

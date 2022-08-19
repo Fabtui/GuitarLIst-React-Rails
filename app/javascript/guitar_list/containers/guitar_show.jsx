@@ -20,6 +20,10 @@ class GuitarShow extends React.Component {
   }
 
   displayPic() {
+    const deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if (deviceWidth < 750) {
+      return
+    }
     this.setState({
       hidden: !this.state.hidden
     })

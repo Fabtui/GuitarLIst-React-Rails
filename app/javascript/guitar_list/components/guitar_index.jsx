@@ -31,7 +31,7 @@ export default class GuitarIndex extends React.Component {
         <FontAwesomeIcon id='left__menu__icon' onClick={this.handleClick} icon={faName} />
       </div>
       </div>
-      <div className="right__window container">
+      <div className="right__window">
         <GuitarShow/>
       </div>
       </div>

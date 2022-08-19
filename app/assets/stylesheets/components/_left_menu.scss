@@ -1,10 +1,9 @@
 .left__menu {
   z-index: 9999;
   position: absolute;
-  height: calc(100vh - 62px - 24px);
   background-color: $onyx;
   color: $white;
-  padding: 2rem;
+  padding: 2rem 2rem 1rem 2rem;
   margin-top: 12px;
   border-radius: 0 0 8px 0;
   border-top: 2px solid $blood;
@@ -15,7 +14,7 @@
 }
 
 .left__menu__fold {
-  transform: translateX(-100%);
+  transform: translateX(-101%);
   transition: cubic-bezier(0, 1.01, 0.54, 0.96) 0.5s;
   animation: left-menu-width 0.5s forwards;
 }
@@ -23,12 +22,12 @@
 .left__menu__icon {
   position: absolute;
   top: -2px;
-  right: -32px;
+  right: -42px;
   background-color: $onyx;
   border-top: 2px solid $blood;
   border-bottom: 2px solid $blood;
   border-right: 2px solid $blood;
-  padding: 0.5rem;
+  padding: 8px 12px 8px 14px;
   border-radius: 0 8px 8px 0;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
   &:hover {
@@ -37,23 +36,18 @@
 }
 
 .guitar__list {
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    list-style: none;
-    margin-bottom: 1rem;
-    color: $white;
     h4 {
+      list-style: none;
+      margin-bottom: 1rem;
+      color: $white;
       font-size: 1rem;
       padding-bottom: 0.5rem;
+      width: fit-content;
+      &:hover {
+        cursor: pointer;
+        color: white;
+      }
     }
-    &:hover {
-      cursor: pointer;
-      color: white;
-    }
-  }
 }
 
 .guitar__element__active {
