@@ -21,6 +21,7 @@ class AddPickupsToGuitars < ActiveRecord::Migration[6.1]
     add_column :guitars, :neck_attachment, :string
     add_column :guitars, :nut_material, :string
     add_column :guitars, :tuning_machines, :string
+    add_column :guitars, :inlays, :string
     add_column :guitars, :pickups_configuration, :string
     add_column :guitars, :artist, :string
     add_column :guitars, :price, :integer

@@ -94,6 +94,11 @@ custom69 = Pickup.create!(brand: 'Fender',
             active: false,
             description: "Fender Custom Shop '69 Stratocaster pickups produce one of the most revered guitar sounds in popular music history-the full, punchy late-'60s blues rock tone that ruled the era from Monterey on the West Coast to Woodstock on the East Coast. Because of the clarity and transparency created by the unique coil wind and magnet structure, the '69 pickup design works especially well with pedals allowing the low end to thump and the high end to soar."
           )
+wb6000 = Pickup.create!(brand: 'Washburn',
+  name:"WB6000",
+  pickup_type: 'Single Coil',
+  active: false
+)
 
 Guitar.create!(
   name: "Stratocaster Classic Player '60s",
@@ -148,6 +153,34 @@ Guitar.create!(
   year: '2004',
   artist: 'Joe Striani'
 )
+Guitar.create!(
+  name: 'WG850',
+  brand: 'Washburn',
+  user_id: user.id,
+  neck_pickup_id: paf.id,
+  center_pickup_id: wb6000.id,
+  bridge_pickup_id: zone.id,
+  made_in: 'Korea',
+  color: 'MBL Metallic Blue',
+  body_wood: 'Basswood',
+  body_finish: 'Polish',
+  neck_wood: 'Maple',
+  neck_finish: 'Varnished',
+  fingerboard_wood: 'Rosewood',
+  bridge: 'Floyd Rose',
+  frets_number: 24,
+  frets_type: 'Jumbo',
+  scale_length: 648,
+  neck_radius: 400,
+  neck_width_nut: '43',
+  neck_attachment: 'Bolt on',
+  inlays: 'Acrylic Dots',
+  pickups_configuration: 'HSH',
+  tuning_machines: 'Grover 18:1',
+  purchase_date: '2001',
+  price: 749
+)
+
 Guitar.create!(name: 'JP6', brand: 'Music Man', year:'2001', user_id: user.id)
 Guitar.create!(name: 'JEM77BFP', brand: 'Ibanez', year:'1991', user_id: user.id)
 

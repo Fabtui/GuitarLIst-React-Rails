@@ -149,6 +149,10 @@ class GuitarShow extends React.Component {
                       <td>Nut Material</td>
                       <td>{guitar.nut_material}</td>
                     </tr>
+                    <tr>
+                      <td>Inlays</td>
+                      <td>{guitar.inlays}</td>
+                    </tr>
                   </tbody>
 
 
