@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_175601) do
     t.string "neck_attachment"
     t.string "nut_material"
     t.string "tuning_machines"
+    t.string "inlays"
     t.string "pickups_configuration"
     t.string "artist"
     t.integer "price"
