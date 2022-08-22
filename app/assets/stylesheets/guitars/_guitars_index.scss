@@ -37,13 +37,10 @@
 .guitar__image {
   height: 100%;
   width: 100%;
+  display: flex;
   img {
-    transform: rotate(270deg);
-    object-position: top;
     height: 100%;
-    max-width: 78vh;
     object-fit: contain;
-    padding-top: 10vw;
   }
 }
 
@@ -67,7 +64,28 @@
   }
 }
 
+.right__window {
+  padding: 2% 10%;
+}
+
+.guitar__image {
+  display: flex;
+  justify-content: center;
+
+  img {
+    object-fit: cover;
+    border-radius: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 @media (max-width: 700px) {
+  .right__window {
+    padding: 2% 5%;
+  }
   .guitar__show__container {
     display: block;
   }
@@ -79,20 +97,19 @@
   }
   .guitar__image img {
     object-position: top;
-    margin-left: 15vw;
   }
-    .guitar__show__empty {
-      max-height: 78vh;
-      text-align: center;
+  .guitar__show__empty {
+    max-height: 78vh;
+    text-align: center;
 
-      h3 {
-        margin-bottom: 20px;
+  h3 {
+    margin-bottom: 20px;
+  }
+  }
+  .guitar__show__empty {
+    margin-top: 20vh;
+    h3 {
+        margin-bottom: 44px;
       }
-    }
-    .guitar__show__empty {
-      margin-top: 20vh;
-      h3 {
-          margin-bottom: 44px;
-        }
-    }
+  }
 }

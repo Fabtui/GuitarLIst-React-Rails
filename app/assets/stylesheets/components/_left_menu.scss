@@ -1,6 +1,7 @@
 .left__menu {
   z-index: 9999;
   position: fixed;
+  max-width: 95vw;
   top: 80px;
   background-color: $onyx;
   color: $white;
@@ -12,10 +13,6 @@
   border-right: 2px solid $blood;
   transition: cubic-bezier(0, 1.01, 0.54, 0.96) 0.5s;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
-}
-
-.left__menu__content {
-
 }
 
 .left__menu__fold {

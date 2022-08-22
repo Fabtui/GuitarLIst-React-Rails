@@ -37,6 +37,7 @@ class GuitarShow extends React.Component {
     const src = `http://res.cloudinary.com/drzsrupmq/image/upload/v1/development/${guitar.photo_id}`
     const photo = guitar.photo_id ? <img src={src}/> : ''
     const picClass = this.state.hidden ? 'guitar__image__zoom__container hidden' : 'guitar__image__zoom__container'
+    const closeClass = this.state.hidden ? 'close__button' : 'close__button show__close__button'
     // const boxClass = this.state.hidden ? '' : 'box-animation'
     return <div className='guitar__show'>
           <h3>{guitar.brand} {guitar.name}</h3>
@@ -202,7 +203,7 @@ class GuitarShow extends React.Component {
           </div>
         <div className={picClass}  onClick={this.displayPic}>
           <div className="box-animation">
-            <div className="close__button" onClick={this.displayPic}>
+            <div className={closeClass} onClick={this.displayPic}>
               <FontAwesomeIcon icon={faXmark} />
             </div>
             {photo}
