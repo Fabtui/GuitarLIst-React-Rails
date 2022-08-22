@@ -12,6 +12,13 @@ export default class GuitarIndex extends React.Component {
       fold: true
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleWindowClick = this.handleWindowClick.bind(this)
+  }
+
+  handleWindowClick() {
+    this.setState({
+      fold: true
+    })
   }
 
   handleClick() {
@@ -33,7 +40,7 @@ export default class GuitarIndex extends React.Component {
         <FontAwesomeIcon id='left__menu__icon' onClick={this.handleClick} icon={faName} />
       </div>
       </div>
-      <div className="right__window">
+      <div onClick={this.handleWindowClick} className="right__window">
         <GuitarShow/>
       </div>
       </div>
