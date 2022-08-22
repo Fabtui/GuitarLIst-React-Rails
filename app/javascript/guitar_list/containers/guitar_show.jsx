@@ -41,9 +41,9 @@ class GuitarShow extends React.Component {
           <h3>{guitar.brand} {guitar.name}</h3>
           <div className="guitar__show__container">
             <div className="guitar__show__infos">
-              <img src={miscLogo} alt="misc-logo" />
               <table className="table guitar__show__table">
                 <tbody>
+                  <img src={miscLogo} alt="misc-logo" />
                   <tr>
                     <td>Brand</td>
                     <td>{guitar.brand}</td>
@@ -82,8 +82,8 @@ class GuitarShow extends React.Component {
                   </tr>
                 </tbody>
 
-              <img src={bodyLogo} alt="body-logo" />
                   <tbody>
+                    <img src={bodyLogo} alt="body-logo" />
                     <tr>
                       <td>Wood</td>
                       <td>{guitar.body_wood}</td>
@@ -98,9 +98,8 @@ class GuitarShow extends React.Component {
                     </tr>
                   </tbody>
 
-
-              <img src={neckLogo} alt="neck-logo" />
                   <tbody>
+                    <img src={neckLogo} alt="neck-logo" />
                     <tr>
                       <td>Wood</td>
                       <td>{guitar.neck_wood}</td>
@@ -156,29 +155,29 @@ class GuitarShow extends React.Component {
                   </tbody>
 
 
-              <img src={electronicsLogo} alt="electronics-logo" />
                   <tbody>
+                    <img src={electronicsLogo} alt="electronics-logo" />
                     <tr>
                       <td>Configuration</td>
                       <td>{guitar.pickups_configuration}</td>
                     </tr>
                     <tr>
                       <td>Neck</td>
-                      <td>{this.props.neckPickup ? <PickupShow position="Neck" pickup={this.props.neckPickup}/> : ''}</td>
+                      <td>{guitar.neckPickup ? <PickupShow position="Neck" pickup={guitar.neckPickup}/> : ''}</td>
                     </tr>
                     <tr>
                       <td>Center</td>
-                      <td>{this.props.centerPickup ? <PickupShow position="Center" pickup={this.props.centerPickup}/> : ''}</td>
+                      <td>{guitar.centerPickup ? <PickupShow position="Center" pickup={guitar.centerPickup}/> : ''}</td>
                     </tr>
                     <tr>
                       <td>Bridge</td>
-                      <td>{this.props.bridgePickup ? <PickupShow position="Bridge" pickup={this.props.bridgePickup}/> : ''}</td>
+                      <td>{guitar.bridgePickup ? <PickupShow position="Bridge" pickup={guitar.bridgePickup}/> : ''}</td>
                     </tr>
                   </tbody>
 
 
-              <img src={hardwareLogo} alt="hardware-logo" />
                   <tbody>
+                    <img src={hardwareLogo} alt="hardware-logo" />
                     <tr>
                       <td>Tuning Machines</td>
                       <td>{guitar.tuning_machines}</td>
@@ -190,10 +189,12 @@ class GuitarShow extends React.Component {
                   </tbody>
                 </table>
             </div>
-            <div onClick={this.displayPic} className="guitar__image__container">
-              <div className="guitar__image">
+            <div className="guitar__image__container">
+            {guitar.photo_id ?
+              <div onClick={this.displayPic} className="guitar__image">
                 {photo}
               </div>
+            : ''}
             </div>
           </div>
         <div className={picClass}  onClick={this.displayPic}>

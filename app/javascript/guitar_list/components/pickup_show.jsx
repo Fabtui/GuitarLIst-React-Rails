@@ -11,21 +11,32 @@ const barsBuilder = (tone, name) => {
   } else {
     num = tone
   }
-  for (let i = 1; i <= (10 - num); i++) {
-    const key = `${name}-${i}`
-    guides.push(<div key={key} className="tone__guide"></div>);
-  }
-  if (tone % 2 != 0) {
-    const key = `${name}-half`
-    guides.push(<div key={key} className="tone__guide tone__guide__half__active"></div>);
-    for (let i = 1; i <= num; i++) {
-      const key = `${name}-${i}-active`
-      guides.push(<div key={key} className="tone__guide tone__guide__active"></div>);
+  if (tone) {
+    if (tone % 2 != 0) {
+      const key = `${name}-half`
+      for (let i = 2; i <= (10 - num); i++) {
+        const key = `${name}-${i}`
+        guides.push(<div key={key} className="tone__guide"></div>);
+      }
+      guides.push(<div key={key} className="tone__guide tone__guide__half__active"></div>);
+      for (let i = 1; i <= num; i++) {
+        const key = `${name}-${i}-active`
+        guides.push(<div key={key} className="tone__guide tone__guide__active"></div>);
+      }
+    } else {
+      for (let i = 1; i <= (10 - num); i++) {
+        const key = `${name}-${i}`
+        guides.push(<div key={key} className="tone__guide"></div>);
+      }
+      for (let i = 1; i <= num; i++) {
+        const key = `${name}-${i}-active`
+        guides.push(<div key={key} className="tone__guide tone__guide__active"></div>);
+      }
     }
   } else {
-    for (let i = 0; i <= num; i++) {
-      const key = `${name}-${i}-active`
-      guides.push(<div key={key} className="tone__guide tone__guide__active"></div>);
+    for (let i = 1; i <= (10 - num); i++) {
+      const key = `${name}-${i}`
+      guides.push(<div key={key} className="tone__guide"></div>);
     }
   }
   return guides
