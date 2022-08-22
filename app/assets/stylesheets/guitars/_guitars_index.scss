@@ -47,6 +47,12 @@
   }
 }
 
+#guitar__image__placeholder {
+  transform: rotate(180deg);
+    padding-top: 0;
+    margin-left: 10vw;
+}
+
 .guitar__show__infos {
   padding: 8px;
   border-radius: 4px;
