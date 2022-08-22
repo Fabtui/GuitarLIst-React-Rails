@@ -71,7 +71,10 @@
         <%= f.input :bridge %>
         <%= f.input :tuning_machines %>
       </div>
-      <%= f.input :photo, as: :file %>
+      <div class="form__photo">
+        <%= f.input :photo, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo', as: :file  %>
+        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      </div>
     </div>
   </div>
   <div class="form__submit__button">
