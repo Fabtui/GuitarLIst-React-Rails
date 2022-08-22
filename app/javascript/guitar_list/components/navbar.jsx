@@ -12,6 +12,15 @@ class Navbar extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  componentDidMount() {
+    const rightWindow = document.querySelector('.right__window')
+    rightWindow.addEventListener('click', (e) => {
+      this.setState({
+        fold: true
+      })
+    })
+  }
+
   handleClick() {
     this.setState({
       fold: !this.state.fold
