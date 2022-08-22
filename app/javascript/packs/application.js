@@ -10,6 +10,7 @@ import "channels"
 import { formClick } from '../components/_form_click'
 import { loginAnim } from '../components/_log_in_anim'
 import { deleteSweetAlert } from '../components/_delete_sweet_alert'
+import { previewImageOnFileSelect } from '../components/_photo_preview'
 
 Rails.start()
 // Turbolinks.start()
@@ -19,4 +20,5 @@ window.onload = function() {
   formClick()
   loginAnim()
   deleteSweetAlert()
+  previewImageOnFileSelect()
 }
