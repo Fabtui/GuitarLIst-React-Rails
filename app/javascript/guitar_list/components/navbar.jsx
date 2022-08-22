@@ -51,12 +51,12 @@ class Navbar extends React.Component {
             <li className="nav-dropdown-item">
               <a href='/pickups/new'>New Pickup</a>
             </li>
-            <li className="nav-dropdown-item">
+            {/* <li className="nav-dropdown-item">
               <a href='/api/v1/guitars' target='_blank'>API Guitar</a>
             </li>
             <li className="nav-dropdown-item">
               <a href='/api/v1/pickups' target='_blank'>API Pickup</a>
-            </li>
+            </li> */}
             { this.props.selectedGuitar ?
             <li className="nav-dropdown-item">
               <a href={`/guitars/${this.props.selectedGuitar.id}/edit`}>Edit Guitar</a>
