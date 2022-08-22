@@ -163,15 +163,15 @@ class GuitarShow extends React.Component {
                     </tr>
                     <tr>
                       <td>Neck</td>
-                      <td>{guitar.neckPickup ? <PickupShow position="Neck" pickup={guitar.neckPickup}/> : ''}</td>
+                      <td>{this.props.neckPickup ? <PickupShow position="Neck" pickup={this.props.neckPickup}/> : ''}</td>
                     </tr>
                     <tr>
                       <td>Center</td>
-                      <td>{guitar.centerPickup ? <PickupShow position="Center" pickup={guitar.centerPickup}/> : ''}</td>
+                      <td>{this.props.centerPickup ? <PickupShow position="Center" pickup={this.props.centerPickup}/> : ''}</td>
                     </tr>
                     <tr>
                       <td>Bridge</td>
-                      <td>{guitar.bridgePickup ? <PickupShow position="Bridge" pickup={guitar.bridgePickup}/> : ''}</td>
+                      <td>{this.props.bridgePickup ? <PickupShow position="Bridge" pickup={this.props.bridgePickup}/> : ''}</td>
                     </tr>
                   </tbody>
 
