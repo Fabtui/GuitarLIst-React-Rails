@@ -7,6 +7,7 @@ import PickupShow from '../components/pickup_show';
 import miscLogo from '../../../assets/images/icon-guitar-misc.png';
 import bodyLogo from '../../../assets/images/icon-guitar-body.png';
 import neckLogo from '../../../assets/images/icon-guitar-neck.png';
+import guitarPlaceholder from '../../../assets/images/guitar-placeholder.jpg'
 import backgroundImage from '../../../assets/images/Gibson-Les-Paul-1950s-Template.jpg'
 import electronicsLogo from '../../../assets/images/icon-guitar-electronics.png';
 import hardwareLogo from '../../../assets/images/icon-guitar-hardware.png';
@@ -194,7 +195,9 @@ class GuitarShow extends React.Component {
               <div onClick={this.displayPic} className="guitar__image">
                 {photo}
               </div>
-            : ''}
+            : <div className="guitar__image">
+                <img src={guitarPlaceholder} id="guitar__image__placeholder"/>
+              </div>}
             </div>
           </div>
         <div className={picClass}  onClick={this.displayPic}>
