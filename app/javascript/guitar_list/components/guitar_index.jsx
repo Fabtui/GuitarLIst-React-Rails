@@ -9,7 +9,7 @@ export default class GuitarIndex extends React.Component {
   constructor (props) {
     super (props)
     this.state = {
-      fold: true
+      fold: true,
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleWindowClick = this.handleWindowClick.bind(this)
@@ -31,13 +31,13 @@ export default class GuitarIndex extends React.Component {
     const faName = this.state.fold? faAngleDoubleRight : faAngleDoubleLeft
     const classname = this.state.fold? 'left__menu left__menu__fold' : 'left__menu'
     return <div className='app__container'>
-        <Navbar/>
+        <Navbar fold={this.state.navFold}/>
       <div className={classname}>
         <div className="left__menu__content">
           <GuitarList/>
         </div>
-      <div className="left__menu__icon">
-        <FontAwesomeIcon id='left__menu__icon' onClick={this.handleClick} icon={faName} />
+      <div  onClick={this.handleClick} className="left__menu__icon">
+        <FontAwesomeIcon id='left__menu__icon' icon={faName}/>
       </div>
       </div>
       <div onClick={this.handleWindowClick} className="right__window">
