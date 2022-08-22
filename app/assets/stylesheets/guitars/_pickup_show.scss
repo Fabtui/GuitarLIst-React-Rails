@@ -13,18 +13,17 @@
 
 .pickup__details {
   background-color: rgba(231, 231, 231, 0.3);
-  transition: 0.2s;
-  height: auto;
+  transition: 0.4s;
+  max-height: 100vh;
   overflow: hidden;
   padding: 8px 16px 0 16px;
   border-radius: 8px;
 }
 
 .hidden {
-  transition: 0.2s;
-  height: 0;
-  padding: 0;
-  border-radius: 0;
+  background-color: transparent;
+  transition: 0.4s;
+  max-height: 0;
 }
 
 .pickup__tone__row {
