@@ -1,0 +1,16 @@
+  <div class="table_container">
+    <tbody>
+        <% @categories.each do |category| %>
+          <% cat = category[0].to_sym %>
+          <tr>
+            <th scope="row"> <%= category[0] %></th>
+            <th scope="row"> <%= category[1] %></th>
+            <% @guitars.each do |guitar| %>
+                <% meal_ingredient = MealIngredient.where(meal_id: meal.id).find_by_ingredient_id(ingredient.id) %>
+                <% total += ((ingredient.send cat) * (meal_ingredient.quantity / 100))%>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+    </tbody>
+  </div>
