@@ -9,17 +9,48 @@
         </tr>
       </thead>
       <tbody>
-        <% @categories.each do |category| %>
-          <% cat = category[0].to_sym %>
+        <% @guitars_categories.each do |guitar_category| %>
+          <% cat = guitar_category[0].to_sym %>
           <tr>
-            <th scope="row"><%= category[1] %></th>
             <% @guitars.each do |guitar| %>
-              <% if (category[0] == 'scale_length' || category[0] == 'neck_radius' || category[0] == 'neck_width_nut' || category[0] == 'neck_width_last_fret') && guitar.send(cat) %>
-                <td scope="col"><%= guitar.send(cat) %>mm</td>
-              <% elsif category[0] == 'price' && guitar.send(cat) %>
-                <td scope="col"><%= guitar.send(cat) %>$</td>
-              <% else %>
-                <td scope="col"><%= guitar.send(cat) %></td>
+              <% if guitar_category[0] == 'neck_pickup_id' %>
+                <th scope="row">Neck Pickup</th>
+
+                <% if guitar.send(cat) %>
+                  <% pickup = Pickup.find(guitar.send(guitar_category[0])) %>
+                  <td scope="col"><%= pickup.brand %> <%= pickup.name %></td>
+                <% else %>
+                  <td scope="col"></td>
+                <% end %>
+
+                <% elsif guitar_category[0] == 'center_pickup_id' %>
+                  <th scope="row">Center Pickup</th>
+                    <% if guitar.send(cat) %>
+                      <% pickup = Pickup.find(guitar.send(guitar_category[0])) %>
+                      <td scope="col"><%= pickup.brand %> <%= pickup.name %></td>
+                    <% else %>
+                      <td scope="col"></td>
+                    <% end %>
+
+                <% elsif guitar_category[0] == 'bridge_pickup_id' %>
+                  <th scope="row">Bridge Pickup</th>
+                    <% if guitar.send(cat) %>
+                      <% pickup = Pickup.find(guitar.send(guitar_category[0])) %>
+                      <td scope="col"><%= pickup.brand %> <%= pickup.name %></td>
+                    <% else %>
+                      <td scope="col"></td>
+                    <% end %>
+                <% else %>
+
+                <th scope="row"><%= guitar_category[1] %></th>
+                <% if (guitar_category[0] == 'scale_length' || guitar_category[0] == 'neck_radius' || guitar_category[0] == 'neck_width_nut' || guitar_category[0] == 'neck_width_last_fret') && guitar.send(cat) %>
+                  <td scope="col"><%= guitar.send(cat) %>mm</td>
+                <% elsif guitar_category[0] == 'price' && guitar.send(cat) %>
+                  <td scope="col"><%= guitar.send(cat) %>$</td>
+                  <td scope="col"><%= guitar.send(cat) %>$</td>
+                <% else %>
+                  <td scope="col"><%= guitar.send(cat) %></td>
+                <% end %>
               <% end %>
             <% end %>
           </tr>

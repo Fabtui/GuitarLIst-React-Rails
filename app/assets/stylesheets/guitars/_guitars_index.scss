@@ -9,4 +9,46 @@
   th {
     background-color: rgba(0, 0, 0, 0.1);
   }
+  tbody tr:nth-child(1),
+  tr:nth-child(2),
+  tr:nth-child(3),
+  tr:nth-child(4),
+  tr:nth-child(5),
+  tr:nth-child(6),
+  tr:nth-child(7),
+  tr:nth-child(8),
+  tr:nth-child(9) {
+    background-color: rgba(21, 0, 255, 0.1);
+  }
+  tbody tr:nth-child(10),
+  tr:nth-child(11),
+  tr:nth-child(12) {
+    background-color: rgba(0, 255, 8, 0.1);
+  }
+  tbody tr:nth-child(13),
+  tr:nth-child(14),
+  tr:nth-child(15),
+  tr:nth-child(16),
+  tr:nth-child(17),
+  tr:nth-child(18),
+  tr:nth-child(19),
+  tr:nth-child(20),
+  tr:nth-child(21),
+  tr:nth-child(22),
+  tr:nth-child(23),
+  tr:nth-child(24),
+  tr:nth-child(25) {
+    background-color: rgba(255, 242, 0, 0.1);
+  }
+  tbody tr:nth-child(26),
+  tr:nth-child(26),
+  tr:nth-child(27),
+  tr:nth-child(28),
+  tr:nth-child(29) {
+    background-color: rgba(0, 213, 255, 0.1);
+  }
+  tbody tr:nth-child(30),
+  tr:nth-child(31) {
+    background-color: rgba(255, 0, 0, 0.1);
+  }
 }
