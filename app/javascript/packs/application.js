@@ -11,6 +11,7 @@ import { formClick } from '../components/_form_click'
 import { loginAnim } from '../components/_log_in_anim'
 import { deleteSweetAlert } from '../components/_delete_sweet_alert'
 import { previewImageOnFileSelect } from '../components/_photo_preview'
+import { menuDisplay } from '../components/_menu_display'
 
 Rails.start()
 // Turbolinks.start()
@@ -21,4 +22,5 @@ window.onload = function() {
   loginAnim()
   deleteSweetAlert()
   previewImageOnFileSelect()
+  menuDisplay()
 }

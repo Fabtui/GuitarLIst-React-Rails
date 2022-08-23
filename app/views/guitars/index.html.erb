@@ -15,7 +15,7 @@
           <% @guitars.each do |guitar| %>
             <% if (category[0] == 'scale_length' || category[0] == 'neck_radius' || category[0] == 'neck_width_nut' || category[0] == 'neck_width_last_fret') && guitar.send(cat) %>
               <td scope="col"><%= guitar.send(cat) %>mm</td>
-            <% elsif category[0] == 'price' %>
+            <% elsif category[0] == 'price' && guitar.send(cat) %>
               <td scope="col"><%= guitar.send(cat) %>$</td>
             <% else %>
               <td scope="col"><%= guitar.send(cat) %></td>
