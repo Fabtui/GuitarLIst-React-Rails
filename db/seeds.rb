@@ -205,7 +205,8 @@ Guitar.create!(
   neck_finish: 'Gloss Polyurethane',
   nut_material: 'Synthetic Bone',
   pickups_configuration: 'SSS',
-  tuning_machines: 'Fender/Ping Vintage Style Tuning Machine'
+  tuning_machines: 'Fender/Ping Vintage Style Tuning Machine',
+  price: 1099
 )
 
 Guitar.create!(
