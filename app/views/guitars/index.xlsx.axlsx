@@ -1,0 +1,61 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+  highlight_cell = style.add_style(bg_color: "EFC376")
+  wb.add_worksheet(name: "Evenements") do |sheet|
+    sheet.add_row ['GuitarList']
+    sheet.add_row ['']
+    guitar_name_row = ['']
+    @guitars.each do |guitar|
+      guitar_name_row << guitar.name
+    end
+    sheet.add_row guitar_name_row
+    bold     = { b: true }
+    centered = { alignment: { horizontal: :center } }
+    size = { sz: 11 }
+    background_color = { bg_color: 'e0e0e0' }
+
+  @guitars_categories.each do |category|
+    if category[0] == 'scale_length' || category[0] == 'neck_radius' || category[0] == 'neck_width_nut' || category[0] == 'neck_width_last_fret'
+      row = ["#{category[1]} (mm)"]
+    elsif category[0] == 'price' 
+      row = ["#{category[1]} ($)"]
+    else
+      row = [category[1]]
+    end
+    if category[0] == 'neck_pickup_id'
+      @guitars.each do |guitar|
+        if guitar.neck_pickup_id
+          pickup = Pickup.find(guitar.neck_pickup_id)
+          row << "#{pickup.brand} #{pickup.name}"
+        else
+          row << ""
+        end
+      end
+    elsif category[0] == 'center_pickup_id'
+      @guitars.each do |guitar|
+        if guitar.center_pickup_id
+          pickup = Pickup.find(guitar.center_pickup_id)
+          row << "#{pickup.brand} #{pickup.name}"
+        else
+          row << ""
+        end
+      end
+    elsif category[0] == 'bridge_pickup_id'
+      @guitars.each do |guitar|
+        if guitar.bridge_pickup_id
+          pickup = Pickup.find(guitar.bridge_pickup_id)
+          row << "#{pickup.brand} #{pickup.name}"
+        else
+          row << ""
+        end
+      end
+    else
+      @guitars.each do |guitar|
+        row << guitar.send(category[0].to_sym)
+      end
+    end
+    sheet.add_row row
+  end
+
+  end
+end

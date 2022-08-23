@@ -2,6 +2,7 @@
   width: 100%;
   padding: 0 5vh;
   margin-top: 80px;
+  overflow-x: scroll;
   tr, th, td {
     border: 1px solid black;
     padding: 0 8px;
@@ -50,6 +51,19 @@
   tbody tr:nth-child(30),
   tr:nth-child(31) {
     background-color: rgba(255, 0, 0, 0.1);
+  }
+}
+
+.table__xls__link {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+  a {
+    color: rgba(0, 0, 0, 0.7);
+  &:hover {
+    color: black;
+  }
   }
 }
 
