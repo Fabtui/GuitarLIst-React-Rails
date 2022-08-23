@@ -1,4 +1,11 @@
   <div class="table_container">
+    <% unless @guitars.count.zero? %>
+    <div class="table__xls__link">
+      <%= link_to guitars_path(format: :xlsx) do %>
+        <i class="fa-solid fa-download"></i>
+      <% end %>
+    </div>
+    <% end %>
     <table>
       <thead>
         <tr>

@@ -6,6 +6,12 @@ class GuitarsController < ApplicationController
     @guitars = Guitar.where(user_id: current_user.id).order(created_at: :asc)
     @guitars_categories = Guitar::CATEGORIES
     @pickups_categories = Pickup::CATEGORIES
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="GuitarList.xlsx"'
+      }
+    end
   end
 
   # GET /guitars/1 or /guitars/1.json
