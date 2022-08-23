@@ -4,6 +4,7 @@ class GuitarsController < ApplicationController
   # GET /guitars or /guitars.json
   def index
     @guitars = Guitar.where(user_id: current_user.id).order(created_at: :asc)
+    @categories = Guitar::CATEGORIES
   end
 
   # GET /guitars/1 or /guitars/1.json
