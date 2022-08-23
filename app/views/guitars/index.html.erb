@@ -1,27 +1,29 @@
-  <table class="table_container">
-    <thead>
-      <tr>
-      <th scope="col"> </th>
-      <% @guitars.each do |guitar| %>
-        <th scope="col"><%= guitar.name %></th>
-      <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <% cat = category[0].to_sym %>
+  <div class="table_container">
+    <table>
+      <thead>
         <tr>
-          <th scope="row"><%= category[1] %></th>
-          <% @guitars.each do |guitar| %>
-            <% if (category[0] == 'scale_length' || category[0] == 'neck_radius' || category[0] == 'neck_width_nut' || category[0] == 'neck_width_last_fret') && guitar.send(cat) %>
-              <td scope="col"><%= guitar.send(cat) %>mm</td>
-            <% elsif category[0] == 'price' && guitar.send(cat) %>
-              <td scope="col"><%= guitar.send(cat) %>$</td>
-            <% else %>
-              <td scope="col"><%= guitar.send(cat) %></td>
-            <% end %>
-          <% end %>
+        <th scope="col"> </th>
+        <% @guitars.each do |guitar| %>
+          <th scope="col"><%= guitar.name %></th>
+        <% end %>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @categories.each do |category| %>
+          <% cat = category[0].to_sym %>
+          <tr>
+            <th scope="row"><%= category[1] %></th>
+            <% @guitars.each do |guitar| %>
+              <% if (category[0] == 'scale_length' || category[0] == 'neck_radius' || category[0] == 'neck_width_nut' || category[0] == 'neck_width_last_fret') && guitar.send(cat) %>
+                <td scope="col"><%= guitar.send(cat) %>mm</td>
+              <% elsif category[0] == 'price' && guitar.send(cat) %>
+                <td scope="col"><%= guitar.send(cat) %>$</td>
+              <% else %>
+                <td scope="col"><%= guitar.send(cat) %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

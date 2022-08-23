@@ -1,4 +1,12 @@
 .table_container {
   width: 100%;
+  padding: 0 5vh;
   margin-top: 80px;
+  tr, th, td {
+    border: 1px solid black;
+    padding: 0 8px;
+  }
+  th {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }
