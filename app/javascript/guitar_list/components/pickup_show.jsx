@@ -58,7 +58,6 @@ export default class PickupShow extends React.Component {
   }
 
   render () {
-    console.log('coucou');
     const classname = this.state.fold? 'pickup__details hidden' : 'pickup__details'
     const pickup = this.props.pickup
     const faName = this.state.fold? faAngleDown : faAngleUp

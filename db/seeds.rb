@@ -205,8 +205,10 @@ Guitar.create!(
   neck_finish: 'Gloss Polyurethane',
   nut_material: 'Synthetic Bone',
   pickups_configuration: 'SSS',
-  tuning_machines: 'Fender/Ping Vintage Style Tuning Machine',
-  price: 1099
+  tuning_machines: 'Fender/Ping Vintage Style',
+  price: 1099,
+  serial_number: 'MZ7017048',
+  year: 2007
 )
 
 Guitar.create!(
@@ -263,7 +265,8 @@ Guitar.create!(
   pickups_configuration: 'HSH',
   tuning_machines: 'Grover 18:1',
   purchase_date: '2001',
-  price: 749
+  price: 749,
+  year: 1999
 )
 
 Guitar.create!(
@@ -284,6 +287,7 @@ Guitar.create!(
   frets_type: 'High Profile Wide',
   scale_length: 648,
   neck_radius: 381,
+  neck_shape: 'Flat D',
   neck_width_nut: 43,
   neck_width_last_fret: 57,
   neck_attachment: '5 Bolts',
@@ -292,7 +296,8 @@ Guitar.create!(
   artist: 'John Petrucci',
   nut_material: 'Melamine',
   serial_number: 'G26140',
-  year: '2004'
+  year: '2004',
+  price: 2680
 )
 
 Guitar.create!(
@@ -323,7 +328,8 @@ Guitar.create!(
   scale_length: 648,
   frets_type: 'Dunlop 6140',
   tuning_machines: 'Gotoh SG38',
-  neck_shape: 'JEM'
+  neck_shape: 'JEM',
+  serial_number: '914831'
 )
 
 Guitar.create!(
@@ -353,7 +359,8 @@ Guitar.create!(
   tuning_machines: 'Gotoh SG38',
   neck_radius: 430,
   neck_width_nut: 48,
-  neck_width_last_fret: 65
+  neck_width_last_fret: 65,
+  serial_number: '910708'
 )
 
 Guitar.create!(
@@ -380,6 +387,7 @@ Guitar.create!(
   frets_type: 'Medium/Jumbo',
   inlays: 'Pearl Trapezoid',
   price: 3899,
+  serial_number: '01725536'
 )
 
 Guitar.create!(
@@ -395,6 +403,7 @@ Guitar.create!(
   scale_length: 648,
   neck_radius: 254,
   frets_number: 20,
+  serial_number: '3070574'
 )
 
 p Guitar.count
