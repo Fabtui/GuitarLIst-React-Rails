@@ -1,4 +1,4 @@
-<% unless controller_name == 'pages' && action_name == 'home' %>
+<% unless (controller_name == 'pages' && action_name == 'home') || controller_name == 'registrations' %>
   <div class="navbar navbar-guitarlist">
     <div class="navbar__item">
       <%= link_to "/", class: "navbar-brand" do %>
@@ -13,7 +13,7 @@
     <div class="nav-dropdown menu__hidden">
       <ul>
         <% if user_signed_in? %>
-          <% unless controller_name == 'pages' && action_name == 'home' %>
+          <% unless (controller_name == 'pages' && action_name == 'home') %>
           <li class="nav-dropdown-item">
             <%= link_to 'Guitars', root_path %>
           </li>
