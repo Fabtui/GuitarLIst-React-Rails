@@ -43,11 +43,13 @@ class Navbar extends React.Component {
       <div className={dropdownClassname}>
           <ul>
             <li className="nav-dropdown-item">
-              <a href='/'>Guitars</a>
+              <a href='/'>Home</a>
             </li>
-            <li className="nav-dropdown-item">
-              <a href='/guitars'>Table</a>
-            </li>
+            { this.props.guitars.length > 0 ?
+              <li className="nav-dropdown-item">
+                <a href='/guitars'>Table</a>
+              </li> : ''
+            }
             <li className="nav-dropdown-item">
               <a href='/guitars/new'>New Guitar</a>
             </li>
@@ -77,6 +79,7 @@ class Navbar extends React.Component {
 function mapStateToProps(state) {
   return {
     selectedGuitar: state.selectedGuitar,
+    guitars: state.guitars,
   };
 }
 

@@ -14,9 +14,15 @@ class GuitarList extends React.Component {
   }
 
   render () {
+    if (this.props.guitars.length > 0) {
     return <div className='guitar__list'>
           {this.props.guitars.map(guitar => <GuitarElement key={guitar.id} guitar={guitar} pickups={this.props.pickups}/>)}
         </div>
+    } else {
+    return <div className='guitar__list'>
+          <a href='/guitars/new'><h4>No guitar listed</h4></a>
+        </div>
+    }
   }
 }
 
