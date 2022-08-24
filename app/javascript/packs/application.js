@@ -12,6 +12,7 @@ import { loginAnim } from '../components/_log_in_anim'
 import { deleteSweetAlert } from '../components/_delete_sweet_alert'
 import { previewImageOnFileSelect } from '../components/_photo_preview'
 import { menuDisplay } from '../components/_menu_display'
+import { alertClose } from '../components/_alert_close'
 
 Rails.start()
 // Turbolinks.start()
@@ -23,4 +24,5 @@ window.onload = function() {
   deleteSweetAlert()
   previewImageOnFileSelect()
   menuDisplay()
+  alertClose()
 }
