@@ -227,7 +227,8 @@ Guitar.create!(
   price: 1099,
   serial_number: 'MZ7017048',
   year: 2007,
-  photo_id: 'lbyh9e6p3ikhcuuh9xp2ivl6ctkt'
+  photo_id: 'lbyh9e6p3ikhcuuh9xp2ivl6ctkt',
+  photos_ids: %w[StratocasterClassicPlayer'60s-0" StratocasterClassicPlayer'60s-1" StratocasterClassicPlayer'60s-2" StratocasterClassicPlayer'60s-3"]
 )
 
 Guitar.create!(
@@ -257,7 +258,8 @@ Guitar.create!(
   year: '2004',
   artist: 'Joe Striani',
   price: 1499,
-  photo_id: 'vsl276ssdu5f5g5k7mzpp8m4hk6f'
+  photo_id: 'vsl276ssdu5f5g5k7mzpp8m4hk6f',
+  photos_ids: %w[JS1000-0" JS1000-1" JS1000-2" JS1000-3"]
 )
 
 Guitar.create!(
@@ -287,7 +289,8 @@ Guitar.create!(
   purchase_date: '2001',
   price: 749,
   year: 1999,
-  photo_id: 'mpu6lk3pvfjlk3t2dow8j6j158b6'
+  photo_id: 'mpu6lk3pvfjlk3t2dow8j6j158b6',
+  photos_ids: %w[WG850-0 WG850-1 WG850-2 WG850-3]
 )
 
 Guitar.create!(
@@ -319,7 +322,8 @@ Guitar.create!(
   serial_number: 'G26140',
   year: '2004',
   price: 2680,
-  photo_id: 'v95bkfdqlmqbd8lgctz3twfudu77'
+  photo_id: 'v95bkfdqlmqbd8lgctz3twfudu77',
+  photos_ids: %w[JP6-0 JP6-1 JP6-2 JP6-3]
 )
 
 Guitar.create!(
@@ -385,7 +389,8 @@ Guitar.create!(
   neck_width_nut: 48,
   neck_width_last_fret: 65,
   serial_number: '910708',
-  photo_id: 'sp9c6fq86wdgvs1ux458xt1187ca'
+  photo_id: 'sp9c6fq86wdgvs1ux458xt1187ca',
+  photos_ids: %w[UV7-0 UV7-1 UV7-2 UV7-3]
 )
 
 Guitar.create!(
@@ -413,7 +418,8 @@ Guitar.create!(
   inlays: 'Pearl Trapezoid',
   price: 3899,
   serial_number: '01725536',
-  photo_id: '6t2tnhx9715plc4m47puw43shafm'
+  photo_id: '6t2tnhx9715plc4m47puw43shafm',
+  photos_ids: %w[LesPaulStandard-0 LesPaulStandard-1 LesPaulStandard-2 LesPaulStandard-3]
 )
 
 Guitar.create!(
@@ -430,7 +436,8 @@ Guitar.create!(
   neck_radius: 254,
   frets_number: 20,
   serial_number: '3070574',
-  photo_id: 'zas944asyltsdol6xc8snzmtthfe'
+  photo_id: 'zas944asyltsdol6xc8snzmtthfe',
+  photos_ids: %w[Variax500-0 Variax500-1 Variax500-2 Variax500-3]
 )
 
 Guitar.create!(
