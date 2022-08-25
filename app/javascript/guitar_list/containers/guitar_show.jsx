@@ -59,8 +59,8 @@ class GuitarShow extends React.Component {
       const guitar = this.props.selectedGuitar
       const src = `http://res.cloudinary.com/drzsrupmq/image/upload/v1/development/${guitar.photo_id}`
       const photo = guitar.photo_id ? <img src={src}/> : <img src={guitarPlaceholder}/>
-      const mainPicClass = this.state.mainPicSelected ? 'main__pic' : 'secondary__pic'
-      const picClass = this.state.hidden ? `guitar__image__zoom__container hidden ${mainPicClass}` : `guitar__image__zoom__container ${mainPicClass}`
+      const mainPicClass = this.state.mainPicSelected ? 'image__container main__pic' : 'image__container secondary__pic'
+      const picClass = this.state.hidden ? `guitar__image__zoom__container hidden` : `guitar__image__zoom__container`
       const closeClass = this.state.hidden ? 'close__button' : 'close__button show__close__button'
       // const boxClass = this.state.hidden ? '' : 'box-animation'
       return <div className='guitar__show'>
@@ -230,7 +230,7 @@ class GuitarShow extends React.Component {
             </div>
           </div>
         <div className={picClass}  onClick={this.displayPic}>
-          <div className="box-animation">
+          <div className={mainPicClass}>
             <div className={closeClass} onClick={this.displayPic}>
               <FontAwesomeIcon icon={faXmark} />
             </div>
