@@ -101,7 +101,7 @@ export default class PickupShow extends React.Component {
               </tr>
               <tr>
                 <td>Resistance</td>
-                <td>{pickup.resistance ? <span>{pickup.resistance}Ω</span> : ''}</td>
+                <td>{pickup.resistance ? <span>{pickup.resistance}KΩ</span> : ''}</td>
               </tr>
               <tr>
                 <td>Type</td>

@@ -181,6 +181,24 @@ blaze_m = Pickup.create!(brand: 'DiMarzio',
                          description: 'Seven-string guitars are hard to amplify. Most players tune the seventh string to a low “B” (or even “A”), and it s a real trick to get a big, solid tone from the other strings without the seventh turning to mud. The Blaze™ Middle single-coil is exceptionally tight, and is designed to be a match for the Blaze™ humbuckers in split mode. Both lows and highs are bright and clean.'
                         )
 
+modern77_n = Pickup.create!(brand: 'Custom 77',
+                         name: 'Modern77 Neck',
+                         resistance: 7.98,
+                         pickup_type: 'Humbucker',
+                         magnet: 'Alnico V',
+                         active: false,
+                         description: "Ils sont caractérisés par une bosse dans les mediums pour un son plus « rock », facilitant le placement dans le mix au sein d’un groupe, et un niveau de sortie plus élevé sans que cela ne se fasse au détriment de sa musicalité. Comme leur nom l'indique, ils sont une version plus moderne de nos micros. Supportant mieux les gros niveaux de gains. Ils sont donc très appréciés des joueurs de rock qui cherchent souvent des sons à la GnR. Les habitués de micros simples les apprécient également. Surement lié à leur dynamique plus élevée et à leur clareté."
+                        )
+
+modern77_b = Pickup.create!(brand: 'Custom 77',
+                         name: 'Modern77 Bridge',
+                         resistance: 13.8,
+                         pickup_type: 'Humbucker',
+                         magnet: 'Alnico V',
+                         active: false,
+                         description: "Ils sont caractérisés par une bosse dans les mediums pour un son plus « rock », facilitant le placement dans le mix au sein d’un groupe, et un niveau de sortie plus élevé sans que cela ne se fasse au détriment de sa musicalité. Comme leur nom l'indique, ils sont une version plus moderne de nos micros. Supportant mieux les gros niveaux de gains. Ils sont donc très appréciés des joueurs de rock qui cherchent souvent des sons à la GnR. Les habitués de micros simples les apprécient également. Surement lié à leur dynamique plus élevée et à leur clareté."
+                        )
+
 Guitar.create!(
   name: "Stratocaster Classic Player '60s",
   brand: 'Fender',
@@ -208,7 +226,8 @@ Guitar.create!(
   tuning_machines: 'Fender/Ping Vintage Style',
   price: 1099,
   serial_number: 'MZ7017048',
-  year: 2007
+  year: 2007,
+  photo_id: 'lbyh9e6p3ikhcuuh9xp2ivl6ctkt'
 )
 
 Guitar.create!(
@@ -237,7 +256,8 @@ Guitar.create!(
   serial_number: 'F0436378',
   year: '2004',
   artist: 'Joe Striani',
-  price: 1499
+  price: 1499,
+  photo_id: 'vsl276ssdu5f5g5k7mzpp8m4hk6f'
 )
 
 Guitar.create!(
@@ -266,7 +286,8 @@ Guitar.create!(
   tuning_machines: 'Grover 18:1',
   purchase_date: '2001',
   price: 749,
-  year: 1999
+  year: 1999,
+  photo_id: 'mpu6lk3pvfjlk3t2dow8j6j158b6'
 )
 
 Guitar.create!(
@@ -297,7 +318,8 @@ Guitar.create!(
   nut_material: 'Melamine',
   serial_number: 'G26140',
   year: '2004',
-  price: 2680
+  price: 2680,
+  photo_id: 'v95bkfdqlmqbd8lgctz3twfudu77'
 )
 
 Guitar.create!(
@@ -329,7 +351,8 @@ Guitar.create!(
   frets_type: 'Dunlop 6140',
   tuning_machines: 'Gotoh SG38',
   neck_shape: 'JEM',
-  serial_number: '914831'
+  serial_number: '914831',
+  photo_id: 'nz4plr06smo7tel5we73taogmz3n'
 )
 
 Guitar.create!(
@@ -360,7 +383,8 @@ Guitar.create!(
   neck_radius: 430,
   neck_width_nut: 48,
   neck_width_last_fret: 65,
-  serial_number: '910708'
+  serial_number: '910708',
+  photo_id: 'sp9c6fq86wdgvs1ux458xt1187ca'
 )
 
 Guitar.create!(
@@ -387,7 +411,8 @@ Guitar.create!(
   frets_type: 'Medium/Jumbo',
   inlays: 'Pearl Trapezoid',
   price: 3899,
-  serial_number: '01725536'
+  serial_number: '01725536',
+  photo_id: '6t2tnhx9715plc4m47puw43shafm'
 )
 
 Guitar.create!(
@@ -403,7 +428,33 @@ Guitar.create!(
   scale_length: 648,
   neck_radius: 254,
   frets_number: 20,
-  serial_number: '3070574'
+  serial_number: '3070574',
+  photo_id: 'zas944asyltsdol6xc8snzmtthfe'
+)
+
+Guitar.create!(
+  name: "London's Burning CS3",
+  brand: 'Custom 77',
+  user_id: user.id,
+  neck_pickup_id: modern77_n.id,
+  bridge_pickup_id: modern77_b.id,
+  made_in: 'Korea',
+  color: 'Amber',
+  body_wood: 'Mohagany',
+  body_top_wood: 'AAA Flamed Maple',
+  neck_wood: 'Mohagany',
+  fingerboard_wood: 'Rosewood',
+  neck_attachment: 'Glued',
+  scale_length: 628,
+  neck_radius: 356,
+  frets_number: 22,
+  serial_number: '8070169',
+  inlays: 'Acrylic Trapezoid',
+  nut_material: 'Bone',
+  neck_width_nut: 43,
+  tuning_machines: 'Custom77 MHDC (18:1)',
+  bridge: 'Tune-O-Matic style',
+  photo_id: 'm0co1pc3caz2r11sv6wz8batoo54'
 )
 
 p Guitar.count
