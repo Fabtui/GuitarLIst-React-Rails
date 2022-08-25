@@ -75,6 +75,12 @@
         <%= f.input :photo, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo', as: :file  %>
         <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
       </div>
+      <div class="form__photos">
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
     </div>
   </div>
   <div class="form__submit__button">

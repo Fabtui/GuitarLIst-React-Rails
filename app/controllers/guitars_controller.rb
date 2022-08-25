@@ -37,9 +37,8 @@ class GuitarsController < ApplicationController
   def create
     @guitar = Guitar.new(guitar_params)
     @guitar.user_id = current_user.id
-    if @guitar.photo.attached?
-      @guitar.photo_id = @guitar.photo.key
-    end
+    upload_image(@guitar, params) if params[:guitar][:photos]
+    @guitar.photo_id = @guitar.photo.key if @guitar.photo.attached?
     respond_to do |format|
       if @guitar.save
         format.html { redirect_to root_path, notice: "Guitar was successfully created." }
@@ -54,11 +53,10 @@ class GuitarsController < ApplicationController
   # PATCH/PUT /guitars/1 or /guitars/1.json
   def update
     respond_to do |format|
+      upload_image(@guitar, params) if params[:guitar][:photos]
       if @guitar.update(guitar_params)
-        if @guitar.photo.attached?
-          @guitar.photo_id = @guitar.photo.key
-          @guitar.save
-        end
+        @guitar.photo_id = @guitar.photo.key if @guitar.photo.attached?
+        @guitar.save
         format.html { redirect_to root_path, notice: "Guitar was successfully updated." }
         format.json { render :show, status: :ok, location: @guitar }
       else
@@ -79,13 +77,20 @@ class GuitarsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_guitar
-      @guitar = Guitar.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def guitar_params
-      params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :body_finish, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :serial_number, :made_in, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id, :purchase_date, :price)
+  def set_guitar
+    @guitar = Guitar.find(params[:id])
+  end
+
+  def guitar_params
+    params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :body_finish, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :serial_number, :made_in, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id, :purchase_date, :price, :photos_ids)
+  end
+
+  def upload_image(guitar, params)
+    params[:guitar][:photos].each_with_index do |photo, index|
+      Cloudinary::Uploader.upload(photo.path, folder: 'GuitarList/', public_id: "#{guitar.name.gsub(' ', '')}-#{index}", overwrite: true)
+      guitar.photos_ids[index] = "#{guitar.name.gsub(' ', '')}-#{index}"
+      guitar.save
     end
+  end
 end

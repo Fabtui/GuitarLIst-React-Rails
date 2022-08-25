@@ -352,7 +352,8 @@ Guitar.create!(
   tuning_machines: 'Gotoh SG38',
   neck_shape: 'JEM',
   serial_number: '914831',
-  photo_id: 'nz4plr06smo7tel5we73taogmz3n'
+  photo_id: 'nz4plr06smo7tel5we73taogmz3n',
+  photos_ids: %w[JEM77-0 JEM77-1 JEM77-2 JEM77-3"]
 )
 
 Guitar.create!(
@@ -454,7 +455,8 @@ Guitar.create!(
   neck_width_nut: 43,
   tuning_machines: 'Custom77 MHDC (18:1)',
   bridge: 'Tune-O-Matic style',
-  photo_id: 'm0co1pc3caz2r11sv6wz8batoo54'
+  photo_id: 'm0co1pc3caz2r11sv6wz8batoo54',
+  photos_ids: %w[London'sBurningCS3-0 London'sBurningCS3-1 London'sBurningCS3-2 London'sBurningCS3-3]
 )
 
 p Guitar.count

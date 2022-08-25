@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_175601) do
+ActiveRecord::Schema.define(version: 2022_08_25_144619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_175601) do
     t.string "artist"
     t.integer "price"
     t.integer "purchase_date"
+    t.text "photos_ids", default: [], array: true
     t.index ["bridge_pickup_id"], name: "index_guitars_on_bridge_pickup_id"
     t.index ["center_pickup_id"], name: "index_guitars_on_center_pickup_id"
     t.index ["neck_pickup_id"], name: "index_guitars_on_neck_pickup_id"
