@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_144619) do
     t.string "artist"
     t.integer "price"
     t.integer "purchase_date"
-    t.text "photos", default: [], array: true
+    t.text "photos_ids", default: [], array: true
     t.index ["bridge_pickup_id"], name: "index_guitars_on_bridge_pickup_id"
     t.index ["center_pickup_id"], name: "index_guitars_on_center_pickup_id"
     t.index ["neck_pickup_id"], name: "index_guitars_on_neck_pickup_id"
