@@ -16,9 +16,11 @@ class GuitarShow extends React.Component {
   constructor (props) {
     super (props)
     this.state = {
-      hidden: true
+      hidden: true,
+      selectedPic: null
     }
     this.displayPic = this.displayPic.bind(this)
+    this.selectPic = this.selectPic.bind(this)
   }
 
   displayPic() {
@@ -28,6 +30,12 @@ class GuitarShow extends React.Component {
     }
     this.setState({
       hidden: !this.state.hidden
+    })
+  }
+
+  selectPic(e) {
+    this.setState({
+      selectedPic: e.target.src
     })
   }
 
@@ -192,13 +200,13 @@ class GuitarShow extends React.Component {
                 </table>
             </div>
             <div className="guitar__image__container">
-              <div onClick={this.displayPic} className="guitar__image">
+              <div onClick={(e) => {this.displayPic(); this.selectPic(e)}} className="guitar__image">
                 {photo}
               </div>
-              <div onClick={this.displayPic} className="guitar__images">
+              <div className="guitar__images">
                 { guitar.photos_ids.length > 0 ?
                 guitar.photos_ids.map(photo =>
-                <div onClick={this.displayPic} className="guitar__images__item" key={photo} >
+                <div onClick={(e) => {this.displayPic(); this.selectPic(e)}} className="guitar__images__item" key={photo} >
                   <img src={`https://res.cloudinary.com/drzsrupmq/image/upload/v1661442456/GuitarList/${photo}.jpg`}/>
                 </div>) : ''
                 }
@@ -210,7 +218,7 @@ class GuitarShow extends React.Component {
             <div className={closeClass} onClick={this.displayPic}>
               <FontAwesomeIcon icon={faXmark} />
             </div>
-            {photo}
+              <img src={this.state.selectedPic}/>
           </div>
         </div>
       </div>
