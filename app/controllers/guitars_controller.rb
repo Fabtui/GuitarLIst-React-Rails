@@ -38,9 +38,7 @@ class GuitarsController < ApplicationController
     @guitar = Guitar.new(guitar_params)
     @guitar.user_id = current_user.id
     upload_image(@guitar, params) if params[:guitar][:photos]
-    if @guitar.photo.attached?
-      @guitar.photo_id = @guitar.photo.key
-    end
+    @guitar.photo_id = @guitar.photo.key if @guitar.photo.attached?
     respond_to do |format|
       if @guitar.save
         format.html { redirect_to root_path, notice: "Guitar was successfully created." }
@@ -90,8 +88,9 @@ class GuitarsController < ApplicationController
 
   def upload_image(guitar, params)
     params[:guitar][:photos].each_with_index do |photo, index|
-      cloudinary = Cloudinary::Uploader.upload(photo.path, folder: 'GuitarList/', public_id: "#{guitar.name}-#{index}", :overwrite => true,)
-      guitar.photos_ids[index] = (cloudinary['asset_id'])
+      Cloudinary::Uploader.upload(photo.path, folder: 'GuitarList/', public_id: "#{guitar.name.gsub(' ', '')}-#{index}", overwrite: true)
+      guitar.photos_ids[index] = "#{guitar.name.gsub(' ', '')}-#{index}"
+      guitar.save
     end
   end
 end
