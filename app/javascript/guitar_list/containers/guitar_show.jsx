@@ -17,10 +17,13 @@ class GuitarShow extends React.Component {
     super (props)
     this.state = {
       hidden: true,
-      selectedPic: null
+      selectedPic: null,
+      mainPicSelected: false
     }
     this.displayPic = this.displayPic.bind(this)
     this.selectPic = this.selectPic.bind(this)
+    this.mainPicSelected = this.mainPicSelected.bind(this)
+    this.secondaryPicSelected = this.secondaryPicSelected.bind(this)
   }
 
   displayPic() {
@@ -39,12 +42,25 @@ class GuitarShow extends React.Component {
     })
   }
 
+  mainPicSelected() {
+    this.setState({
+      mainPicSelected: true
+    })
+  }
+
+  secondaryPicSelected() {
+    this.setState({
+      mainPicSelected: false
+    })
+  }
+
   render () {
     if (this.props.selectedGuitar) {
       const guitar = this.props.selectedGuitar
       const src = `http://res.cloudinary.com/drzsrupmq/image/upload/v1/development/${guitar.photo_id}`
       const photo = guitar.photo_id ? <img src={src}/> : <img src={guitarPlaceholder}/>
-      const picClass = this.state.hidden ? 'guitar__image__zoom__container hidden' : 'guitar__image__zoom__container'
+      const mainPicClass = this.state.mainPicSelected ? 'main__pic' : 'secondary__pic'
+      const picClass = this.state.hidden ? `guitar__image__zoom__container hidden ${mainPicClass}` : `guitar__image__zoom__container ${mainPicClass}`
       const closeClass = this.state.hidden ? 'close__button' : 'close__button show__close__button'
       // const boxClass = this.state.hidden ? '' : 'box-animation'
       return <div className='guitar__show'>
@@ -200,13 +216,13 @@ class GuitarShow extends React.Component {
                 </table>
             </div>
             <div className="guitar__image__container">
-              <div onClick={(e) => {this.displayPic(); this.selectPic(e)}} className="guitar__image">
+              <div onClick={(e) => {this.displayPic(); this.selectPic(e); this.mainPicSelected();}} className="guitar__image">
                 {photo}
               </div>
               <div className="guitar__images">
                 { guitar.photos_ids.length > 0 ?
                 guitar.photos_ids.map(photo =>
-                <div onClick={(e) => {this.displayPic(); this.selectPic(e)}} className="guitar__images__item" key={photo} >
+                <div onClick={(e) => {this.displayPic(); this.selectPic(e); this.secondaryPicSelected();}} className="guitar__images__item" key={photo} >
                   <img src={`https://res.cloudinary.com/drzsrupmq/image/upload/v1661442456/GuitarList/${photo}.jpg`}/>
                 </div>) : ''
                 }
