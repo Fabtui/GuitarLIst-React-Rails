@@ -3,7 +3,7 @@ class GuitarsController < ApplicationController
 
   # GET /guitars or /guitars.json
   def index
-    @guitars = Guitar.where(user_id: current_user.id).order(created_at: :asc)
+    @guitars = Guitar.where(user_id: current_user.id).order(brand: :asc).order(name: :asc)
     @guitars_categories = Guitar::CATEGORIES
     @pickups_categories = Pickup::CATEGORIES
     respond_to do |format|
