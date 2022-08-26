@@ -223,7 +223,7 @@ class GuitarShow extends React.Component {
                 { guitar.photos_ids.length > 0 ?
                 guitar.photos_ids.map(photo =>
                 <div onClick={(e) => {this.displayPic(); this.selectPic(e); this.secondaryPicSelected();}} className="guitar__images__item" key={photo} >
-                  <img src={`https://res.cloudinary.com/drzsrupmq/image/upload/v1661442456/GuitarList/${photo}.jpg`}/>
+                  <img src={`https://res.cloudinary.com/drzsrupmq/image/upload/v1661442456/GuitarList/${photo}`}/>
                 </div>) : ''
                 }
               </div>
