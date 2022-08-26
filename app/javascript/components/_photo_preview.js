@@ -5,6 +5,22 @@ export const previewImageOnFileSelect = () => {
       displayPreview(input);
     })
   }
+  const secondaryPics = document.querySelectorAll('.secondary-photo-input')
+  if (secondaryPics) {
+    secondaryPics.forEach(secondaryPic => {
+      secondaryPic.addEventListener('change', (e) => {
+        console.log(secondaryPic.files[0]);
+        const reader = new FileReader();
+        console.log(`photo-${secondaryPic.id}`);
+        const picContainer =  document.querySelector(`#photo-${secondaryPic.id}`)
+        reader.onload = (e) => {
+          picContainer.src = e.currentTarget.result;
+        }
+        reader.readAsDataURL(secondaryPic.files[0])
+        picContainer.classList.contains('hidden') ?  picContainer.classList.remove('hidden') : ''
+      })
+    });
+  }
 }
 
 const displayPreview = (input) => {

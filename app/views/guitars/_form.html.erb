@@ -84,20 +84,36 @@
         </div>
         <div class="form__photos">
           <div class="form__photo">
-            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 1', class:'secondary-photo-input' %>
-            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-0.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[0] %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true, class:'secondary-photo-input', id:'input-1' }, label:'Photo 1' %>
+            <% if guitar.photos_ids[0] %>
+              <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-0.jpg", width: 200, id: "photo-input-1" %>
+            <% else %>
+              <%= image_tag "", width: 200, class: "hidden", id: "photo-input-1" %>
+            <% end %>
           </div>
           <div class="form__photo">
-            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 2', class:'secondary-photo-input' %>
-            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-1.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[1] %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true, class:'secondary-photo-input', id:'input-2' }, label:'Photo 2' %>
+            <% if @guitar.photos_ids[1] %>
+              <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-1.jpg", width: 200, id: "photo-input-2" %>
+            <% else %>
+              <%= image_tag "", width: 200, class: "hidden", id: "photo-input-2" %>
+            <% end %>
           </div>
           <div class="form__photo">
-            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 3', class:'secondary-photo-input' %>
-            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-2.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[2] %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true, class:'secondary-photo-input', id:'input-3' }, label:'Photo 3' %>
+            <% if @guitar.photos_ids[2] %>
+              <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-2.jpg", width: 200, id: "photo-input-3" %>
+            <% else %>
+              <%= image_tag "", width: 200, class: "hidden", id: "photo-input-3" %>
+            <% end %>
           </div>
           <div class="form__photo">
-            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 4', class:'secondary-photo-input' %>
-            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-3.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[3] %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true, class:'secondary-photo-input', id:'input-4' }, label:'Photo 4' %>
+            <% if @guitar.photos_ids[3] %>
+              <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-3.jpg", width: 200, id: "photo-input-4" %>
+            <% else %>
+              <%= image_tag "", width: 200, class: "hidden", id: "photo-input-4" %>
+            <% end %>
           </div>
         </div>
       </div>
