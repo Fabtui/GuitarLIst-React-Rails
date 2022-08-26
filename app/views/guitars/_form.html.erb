@@ -71,15 +71,35 @@
         <%= f.input :bridge %>
         <%= f.input :tuning_machines %>
       </div>
-      <div class="form__photo">
-        <%= f.input :photo, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo', as: :file  %>
-        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+       <div class="form__title form__title__photos" data-name="form__photos">
+        <%= image_tag("icon-guitar-photos.png") %>
+        <h4>Photos</h4>
+        <i class="fa-solid fa-angle-down" id="form__photos__icon"></i>
       </div>
-      <div class="form__photos">
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <div class="form__photos form__container form__hidden">
+        <div class="form__photo">
+          <%= f.input :photo, as: :file, label:'Main Photo', input_html: { id: 'photo-input' }%>
+          <%#= f.input :photo, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo', as: :file  %>
+          <%= image_tag "", width: 200, class: "hidden", id: "photo-preview" %>
+        </div>
+        <div class="form__photos">
+          <div class="form__photo">
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 1', class:'secondary-photo-input' %>
+            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-0.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[0] %>
+          </div>
+          <div class="form__photo">
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 2', class:'secondary-photo-input' %>
+            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-1.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[1] %>
+          </div>
+          <div class="form__photo">
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 3', class:'secondary-photo-input' %>
+            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-2.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[2] %>
+          </div>
+          <div class="form__photo">
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label:'Photo 4', class:'secondary-photo-input' %>
+            <%= image_tag "https://res.cloudinary.com/drzsrupmq/image/upload/v1661458045/GuitarList/#{guitar.name.gsub(' ', '')}-3.jpg", width: 200, id: "photo-preview" if @guitar.photos_ids[3] %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
