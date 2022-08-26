@@ -16,7 +16,7 @@
         <%= f.input :made_in, collection: COUNTRIES.sort, label:'Country' %>
         <%= f.input :artist %>
         <%= f.input :purchase_date, collection: 1950..Time.now.year %>
-        <%= f.input :price %>
+        <%= f.input :price, label: 'List Price ($)' %>
         </div>
       </div>
       <div class="form__title form__title__body" data-name="form__body">
@@ -51,13 +51,13 @@
       <div class="form__neck form__container form__hidden">
         <%= f.input :neck_wood, collection: ['Alder','Basswood', 'Black Limba', 'Koa','Maple', 'Mohagany','Okoume', 'Swamp Ash', 'Walnut']  %>
         <%= f.input :fingerboard_wood, collection: ['Maple','Ebony', 'Rosewood', 'Richlite', 'Birdseye Maple', 'Roasted Maple', 'Flamed Maple'] %>
-        <%= f.input :scale_length, hint:'in cm' %>
+        <%= f.input :scale_length, label:'Scale Length (mm)' %>
         <%= f.input :neck_shape %>
         <%= f.input :neck_finish %>
         <%= f.input :neck_attachment %>
-        <%= f.input :neck_radius %>
-        <%= f.input :neck_width_nut %>
-        <%= f.input :neck_width_last_fret %>
+        <%= f.input :neck_radius, label:'Neck Radius (mm)' %>
+        <%= f.input :neck_width_nut, label:'Neck Width At Nut (mm)' %>
+        <%= f.input :neck_width_last_fret, label:'Neck Width At Last Fret (mm)' %>
         <%= f.input :frets_number, collection: 21..27 %>
         <%= f.input :frets_type %>
         <%= f.input :nut_material %>
