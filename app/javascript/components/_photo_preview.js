@@ -5,6 +5,13 @@ export const previewImageOnFileSelect = () => {
       displayPreview(input);
     })
   }
+  const secondaryPics = document.querySelectorAll('.secondary-photo-input')
+  if (secondaryPics) {
+    secondaryPics.forEach(secondaryPic => {
+      secondaryPic.addEventListener('change', () => {
+        displaySecondaryPreview(secondaryPic)
+    });
+  })
 }
 
 const displayPreview = (input) => {
@@ -17,3 +24,15 @@ const displayPreview = (input) => {
     document.getElementById('photo-preview').classList.remove('hidden');
   }
 }
+
+const displaySecondaryPreview = (input) => {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+        const picContainer =  document.querySelector(`#photo-${input.id}`)
+        reader.onload = (e) => {
+          picContainer.src = e.currentTarget.result;
+        }
+        reader.readAsDataURL(input.files[0])
+        picContainer.classList.contains('hidden') ?  picContainer.classList.remove('hidden') : ''
+      }
+}}
