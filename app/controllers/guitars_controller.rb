@@ -53,7 +53,10 @@ class GuitarsController < ApplicationController
   # PATCH/PUT /guitars/1 or /guitars/1.json
   def update
     respond_to do |format|
-      upload_image(@guitar, params) if params[:guitar][:photos]
+      upload_image(@guitar, params[:guitar][:photos0], 0) if params[:guitar][:photos0]
+      upload_image(@guitar, params[:guitar][:photos1], 1) if params[:guitar][:photos1]
+      upload_image(@guitar, params[:guitar][:photos2], 2) if params[:guitar][:photos2]
+      upload_image(@guitar, params[:guitar][:photos3], 3) if params[:guitar][:photos3]
       if @guitar.update(guitar_params)
         @guitar.photo_id = @guitar.photo.key if @guitar.photo.attached?
         @guitar.save
@@ -86,11 +89,10 @@ class GuitarsController < ApplicationController
     params.require(:guitar).permit(:name, :brand, :year, :photo, :color, :body_wood, :body_finish, :neck_wood, :body_top_wood, :fingerboard_wood, :bridge, :scale_length, :frets_number, :frets_type, :neck_shape, :neck_radius, :neck_width_nut, :neck_width_last_fret, :neck_finish, :neck_attachment, :nut_material, :tuning_machines, :serial_number, :made_in, :artist, :pickups_configuration, :neck_pickup_id, :center_pickup_id, :bridge_pickup_id, :purchase_date, :price, :photos_ids)
   end
 
-  def upload_image(guitar, params)
-    params[:guitar][:photos].each_with_index do |photo, index|
-      Cloudinary::Uploader.upload(photo.path, folder: 'GuitarList/', public_id: "#{guitar.name.gsub(' ', '')}-#{index}", overwrite: true)
-      guitar.photos_ids[index] = "#{guitar.name.gsub(' ', '')}-#{index}"
-      guitar.save
-    end
+  def upload_image(guitar, photo, index)
+    raise
+    Cloudinary::Uploader.upload(photo.path, folder: 'GuitarList/', public_id: "#{guitar.name.gsub(' ', '')}-#{index}", overwrite: true)
+    guitar.photos_ids[index] = "#{guitar.name.gsub(' ', '')}-#{index}"
+    guitar.save
   end
 end
