@@ -62,7 +62,6 @@ class GuitarShow extends React.Component {
       const mainPicClass = this.state.mainPicSelected ? 'image__container main__pic' : 'image__container secondary__pic'
       const picClass = this.state.hidden ? `guitar__image__zoom__container hidden` : `guitar__image__zoom__container`
       const closeClass = this.state.hidden ? 'close__button' : 'close__button show__close__button'
-      // const boxClass = this.state.hidden ? '' : 'box-animation'
       return <div className='guitar__show'>
           <h3>{guitar.brand} {guitar.name}</h3>
           <div className="guitar__show__container">
