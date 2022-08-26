@@ -90,9 +90,9 @@ class GuitarsController < ApplicationController
   end
 
   def upload_image(guitar, photo, index)
-    raise
     Cloudinary::Uploader.upload(photo.path, folder: 'GuitarList/', public_id: "#{guitar.name.gsub(' ', '')}-#{index}", overwrite: true)
-    guitar.photos_ids[index] = "#{guitar.name.gsub(' ', '')}-#{index}"
+    guitar.photos_ids[index] ? guitar.photos_ids[index] = "#{guitar.name.gsub(' ', '')}-#{index}#{photo.content_type.gsub('image/', '.')}"
+    : guitar.photos_ids[guitar.photos_ids.length] = "#{guitar.name.gsub(' ', '')}-#{index}#{photo.content_type.gsub('image/', '.')}"
     guitar.save
   end
 end
