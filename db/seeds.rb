@@ -411,6 +411,7 @@ Guitar.create!(
   bridge: 'Tune-O-Matic',
   frets_number: 22,
   neck_width_nut: 43,
+  neck_radius: 305,
   pickups_configuration: 'HH',
   year: '2005',
   neck_shape: '’60s Slim Taper',
