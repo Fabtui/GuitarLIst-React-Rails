@@ -1,0 +1,56 @@
+ <% guitars_categories.each do |guitar_category| %>
+  <% cat = guitar_category[0].to_sym %>
+  <tr>
+    <th scope="col"><%= guitar_category[1] %></th>
+    <% guitars.each do |guitar| %>
+      <% case guitar_category[0] %>
+      <% when 'neck_pickup_id' %>
+        <% if guitar.neck_pickup_id %>
+          <% pickup = Pickup.find(guitar.neck_pickup_id) %>
+          <td><%= pickup.brand %> <%= pickup.name %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      <% when 'center_pickup_id' %>
+        <% if guitar.center_pickup_id %>
+          <% pickup = Pickup.find(guitar.center_pickup_id) %>
+          <td><%= pickup.brand %> <%= pickup.name %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      <% when 'bridge_pickup_id' %>
+        <% if guitar.bridge_pickup_id %>
+          <% pickup = Pickup.find(guitar.bridge_pickup_id) %>
+          <td><%= pickup.brand %> <%= pickup.name %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      <% when 'scale_length' || guitar_category[0] == 'neck_radius' || guitar_category[0] == 'neck_width_nut' || guitar_category[0] == 'neck_width_last_fret' %>
+        <% if guitar.send(cat) %>
+          <td><%= guitar.send(cat).round %>mm</td>
+        <% else %>
+          <td></td>
+        <% end %>
+      <% when 'price' %>
+        <% if guitar.send(cat) %>
+          <td><%= guitar.send(cat).round %>$</td>
+        <% else %>
+          <td></td>
+        <% end %>
+      <% else %>
+        <td><%= guitar.send(cat) %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+
+<tr class="table__photo__container">
+  <th scope="col">Photo</th>
+  <% guitars.each do |guitar| %>
+    <td>
+      <div class="table__photo__content">
+        <%= image_tag "http://res.cloudinary.com/drzsrupmq/image/upload/v1/development/#{guitar.photo_id}", class: "table__photo" %>
+      </div>
+    </td>
+  <% end %>
+</tr>

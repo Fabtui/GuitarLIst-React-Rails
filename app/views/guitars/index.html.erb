@@ -16,68 +16,8 @@
         </tr>
       </thead>
       <tbody>
-        <% @guitars_categories.each do |guitar_category| %>
-          <% cat = guitar_category[0].to_sym %>
-          <tr>
-             <th scope="col"><%= guitar_category[1] %></th>
-             <% @guitars.each do |guitar| %>
-              <% case guitar_category[0] %>
-              <% when 'neck_pickup_id' %>
-                <% if guitar.neck_pickup_id %>
-                  <% pickup = Pickup.find(guitar.neck_pickup_id) %>
-                  <td><%= pickup.brand %> <%= pickup.name %></td>
-                <% else %>
-                  <td></td>
-                <% end %>
-              <% when 'center_pickup_id' %>
-                <% if guitar.center_pickup_id %>
-                  <% pickup = Pickup.find(guitar.center_pickup_id) %>
-                  <td><%= pickup.brand %> <%= pickup.name %></td>
-                <% else %>
-                  <td></td>
-                <% end %>
-              <% when 'bridge_pickup_id' %>
-                <% if guitar.bridge_pickup_id %>
-                  <% pickup = Pickup.find(guitar.bridge_pickup_id) %>
-                  <td><%= pickup.brand %> <%= pickup.name %></td>
-                <% else %>
-                  <td></td>
-                <% end %>
-              <% when 'scale_length' || guitar_category[0] == 'neck_radius' || guitar_category[0] == 'neck_width_nut' || guitar_category[0] == 'neck_width_last_fret' %>
-                <% if guitar.send(cat) %>
-                  <td><%= guitar.send(cat).round %>mm</td>
-                <% else %>
-                  <td></td>
-                <% end %>
-              <% when 'price' %>
-                <% if guitar.send(cat) %>
-                  <td><%= guitar.send(cat).round %>$</td>
-                <% else %>
-                  <td></td>
-                <% end %>
-              <% else %>
-                <td><%= guitar.send(cat) %></td>
-              <% end %>
-             <% end %>
-          </tr>
-        <% end %>
+        <%= render 'table_body', {guitars:@guitars, guitars_categories:@guitars_categories} %>
       </tbody>
     </table>
-    <div class="table_helper">
-      <div class="infos__helper table_helper__content">
-        <i class="fa-solid fa-square"></i><h6>Infos</h6>
-      </div>
-      <div class="body__helper table_helper__content">
-        <i class="fa-solid fa-square"></i><h6>Body</h6>
-      </div>
-      <div class="neck__helper table_helper__content">
-        <i class="fa-solid fa-square"></i><h6>Neck</h6>
-      </div>
-      <div class="pickup__helper table_helper__content">
-        <i class="fa-solid fa-square"></i><h6>Pickup</h6>
-      </div>
-      <div class="hardware__helper table_helper__content">
-        <i class="fa-solid fa-square"></i><h6>Hardware</h6>
-      </div>
-    </div>
+      <%= render 'table_helper' %>
   </div>
