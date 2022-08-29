@@ -67,6 +67,17 @@
   }
 }
 
+.table__photo__container {
+  .table__photo__content {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  img {
+    max-width: 100px;
+  }
+}
+
 .table_helper {
   margin: 32px 0;
   display: flex;
